@@ -1,6 +1,7 @@
 from distutils.command.upload import upload
 from webbrowser import get
-from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse
 from .forms import Formulario
 from django.core.files.storage import FileSystemStorage
@@ -18,5 +19,5 @@ def formu(request):
             Email = request.POST.get('Email','')
             Camp = request.POST.get('Camp','')
             Prioridad = request.POST.get('Camp','')
-            return redirect('/?ok')
+            return JsonResponse(request.POST)
     return render(request,'Form/form.html',{'form':formulario})
