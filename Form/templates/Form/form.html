@@ -8,61 +8,61 @@
 		{% if "ok" in request.GET %}
 			<p><b>Campaña disparada</b></p>
 		{% endif %}
-		<form action="" method="POST">
-			</table>
+		<form action="{% url 'formulario'%}" method="POST">
+			<table>
 			{% csrf_token %}
 				<div>
 					<label>Nombre de la Campaña</label>
-					<div class="input-group">
+					<div class="form-group mx-sm-3 mb-2">
 						{{form.Nombre_campania}}
 					</div>
 					{{form.Nombre_campania.errors}}
 				</div>
 				<div>
 					<label>Marca</label>
-					<div class="input-group">
+					<div class="form-group mx-sm-3 mb-2">
 						{{form.Marca}}
 					</div>
 					{{form.Marca.errors}}
 				</div>
 				<div>
 					<label>Canal</label>
-					<div class="input-group">
+					<div class="form-group mx-sm-3 mb-2">
 						{{form.Canal}}
 					</div>
 					{{form.Canal.errors}}
 				</div>
 				<div>
 					<label>Fecha de envio</label>
-					<div class="input-group">
+					<div class="form-group mx-sm-3 mb-2">
 						{{form.Fecha_envia}}
 					</div>
 					{{form.Fecha_envia.errors}}
 				</div>
 				<div>
 					<label>Email</label>
-					<div class="input-group">
+					<div class="form-group mx-sm-3 mb-2">
 						{{form.Email}}
 					</div>
 					{{form.Email.errors}}
 				</div>
 				<div>
 					<label>Campo</label>
-					<div class="input-group">
-						{{form.Camp}}
+					<div class="form-group mx-sm-3 mb-2">
+						{{form.Camp}}	|
 					</div>
 					{{form.Camp.errors}}
 				</div>
 				<div>
 					<label>Priodidad</label>
-					<div class="input-group">
+					<div class="form-group mx-sm-3 mb-2">
 						{{form.Prioridad}}
 					</div>
 					{{form.Prioridad.errors}}
 				</div>
 				<p>
 					<input type="submit" value="Disparar">
-				</p>
+				</p>	
 			</table>
 		</form>
   </div>
