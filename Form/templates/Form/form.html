@@ -6,7 +6,9 @@
   <div style="padding-top:50px; text-align:center;">
     <h1>Campañas</h1>
 		{% if "ok" in request.GET %}
-			<p><b>Campaña disparada</b></p>
+			<div class="alert alert-success" role="alert">
+			La campaña se envió y registró correctamente
+			</div>
 		{% endif %}
 		<form action="{% url 'formulario'%}" method="POST">
 			<table>
@@ -14,7 +16,7 @@
 				<div>
 					<label>Nombre de la Campaña</label>
 					<div class="form-group mx-sm-3 mb-2">
-						{{form.Nombre_campania}}
+						{{form.Nombre_campania }}
 					</div>
 					{{form.Nombre_campania.errors}}
 				</div>
