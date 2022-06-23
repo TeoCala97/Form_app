@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('', include('Form.urls')),
+    path('', include('Camp.urls')),
 ]

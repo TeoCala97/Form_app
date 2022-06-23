@@ -6,19 +6,9 @@ from django.urls import reverse
 from django.core.files.storage import FileSystemStorage
 import json
 from Form.forms import Formulario
-
-
-from google.cloud import pubsub_v1
-from google.cloud import bigquery
-from google.cloud import storage
-# from google.oauth2 import service_account
-
-
-client = bigquery.Client(project='sod-co-bi-sandbox')
-client_storage= storage.Client(project='sod-co-bi-sandbox')
-bucket = client_storage.get_bucket('crm_symphony_cfg_co')
-
+from functions.functions import GCP_gestor
 # Create your views here.
+
 class FormView(HttpRequest):
 
     def formu_index(request):
@@ -27,10 +17,19 @@ class FormView(HttpRequest):
             formulario = Formulario(data=request.POST)
             if formulario.is_valid():
                 formulario.save()
-                formu = json.dumps(request.POST)
-                blob = bucket.blob(formu)
-                blob.upload_from_filename('cfg_sp_audiencia_sod_mo_sku.json')
-            return redirect(reverse("formulario")+"?ok" )
+                formu = dict(request.POST)
+                formu['key_lecture']=int(1)
+                GCP_gestor.connect_client('sod-co-bi-sandbox','sod-co-bi-sandbox-campanhas')  
+                jsondata_post = 'cfg_audiencia_parametros_campanhas.json'
+                print(formu)
+                GCP_gestor.post_form(jsondata_post, formu)
+                File = GCP_gestor.get_form()
+                print(File)
+                File['key_lecture']=int(0)
+                jsondata_get = 'post_data.json'
+                GCP_gestor.post_form(jsondata_get, File)
+                print(File)
+                # if File['key_lecture'] == 1:
+                # topic_path = GCP_gestor.publisher()
+            return render(request,'Form/camp.html', {'ID': File['Campanha_id'], 'Nombre_C': File['Nombre_campania'], 'N_registros': File['N_registros']})
         return render(request,'Form/form.html',{'form':formulario})
-
-

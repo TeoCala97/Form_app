@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Formulario{% endblock %}
+{% block content %}
+<main role="main">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-md-3">
+        <img src="{% static 'core/img/envio.png' %}" class="img-fluid"/>
+      </div>
+      <div class="col-md-6 mt-3">
+        <h1>Campaña enviada</h1>
+			<table>
+				<div>
+					<b>El Id es:</b> {{ID}}
+				</div>
+				<div>
+					<b>El Nombre de la Campaña es:</b> {{Nombre_C}}
+				</div>
+				<div>
+					<b>El numero de registro es:</b> {{N_registros}}
+				</div>
+				<div>
+					<b>Published messages to: </b> {{topic}}
+				</div>
+			</table>
+      </div>
+	<a class="nav-link" href="{% url 'formulario' %}">regresar</a>
+    </div>
+  </div>
+</main>
+{% endblock %}
+	

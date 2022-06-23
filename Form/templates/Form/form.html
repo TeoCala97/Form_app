@@ -7,18 +7,18 @@
     <h1>Campañas</h1>
 		{% if "ok" in request.GET %}
 			<div class="alert alert-success" role="alert">
-			La campaña se envió y registró correctamente
+				Se envió la campaña y se registró el id es
 			</div>
-		{% endif %}
+		{% endif %}	
 		<form action="{% url 'formulario'%}" method="POST">
 			<table>
 			{% csrf_token %}
 				<div>
 					<label>Nombre de la Campaña</label>
 					<div class="form-group mx-sm-3 mb-2">
-						{{form.Nombre_campania }}
+						{{form.Nombre_campanha }}
 					</div>
-					{{form.Nombre_campania.errors}}
+					{{form.Nombre_campanha.errors}}
 				</div>
 				<div>
 					<label>Marca</label>
@@ -37,9 +37,9 @@
 				<div>
 					<label>Fecha de envio</label>
 					<div class="form-group mx-sm-3 mb-2">
-						{{form.Fecha_envia}}
+						{{form.Fecha_envio}}
 					</div>
-					{{form.Fecha_envia.errors}}
+					{{form.Fecha_envio.errors}}
 				</div>
 				<div>
 					<label>Email</label>
@@ -49,21 +49,41 @@
 					{{form.Email.errors}}
 				</div>
 				<div>
-					<label>Campo</label>
+					<label>Tipo de Usuario</label>
 					<div class="form-group mx-sm-3 mb-2">
-						{{form.Camp}}	|
+						{{form.Tipo_usuario}}	
 					</div>
-					{{form.Camp.errors}}
+					{{form.Tipo_usuario.errors}}
 				</div>
 				<div>
-					<label>Priodidad</label>
+					<label>Nombre de la tabla (Camapañas no automatizadas)</label>
+					<label>no ingresar el tipo de usuario</label>
+					<div class="form-group mx-sm-3 mb-2">
+						{{form.Table_name}}	
+					</div>
+					{{form.Tipo_usuario.errors}}
+				</div>
+				<div>
+					<label>Nombre del Campo</label>
+					<div class="form-group mx-sm-3 mb-2">
+						{{form.Nombre_campo}}	
+					</div>
+				</div>
+				<div>
+					<label>Campo</label>
+					<div class="form-group mx-sm-3 mb-2">
+						{{form.Campo}}	
+					</div>
+				</div>
+				<div>
+					<label>Prioridad</label>
 					<div class="form-group mx-sm-3 mb-2">
 						{{form.Prioridad}}
 					</div>
 					{{form.Prioridad.errors}}
 				</div>
 				<p>
-					<input type="submit" value="Disparar">
+					<input type="submit" value="Disparar" href="{% url 'campaña' %}">
 				</p>	
 			</table>
 		</form>
