@@ -14,7 +14,7 @@ class forms_api(models.Model):
     CANAL = [
         ("", ""),
         ("EMAIL", "Email"),
-        ("CELULAR", "Celular"),
+        ("SMS", "SMS"),
     ]
     TIPO = [
         ("None", ""),
