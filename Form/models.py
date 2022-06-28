@@ -23,6 +23,7 @@ class forms_api(models.Model):
         ("SOFT", "SOFT"),
         ("TODOS", "TODOS"),
         ("ACABADOS", "ACABADOS"),
+        ("MIX", "MIX"),
     ] 
     CAMPOS = [
         ("None", ""),
@@ -45,9 +46,9 @@ class forms_api(models.Model):
     Fecha_envio = models.DateField()
     Email = models.EmailField()
     Tipo_usuario =  models.CharField(max_length=10,choices=TIPO,verbose_name="Tipo de usuario", default=None)
-    Table_name = models.CharField(max_length=50,verbose_name="Nombre de Tabla", default=None, blank=True, null=True)
-    Nombre_campo = models.CharField(max_length=10,choices=N_CAMP, default=None,verbose_name="Nombre del Campo")
-    Campo = models.CharField(max_length=10,choices=CAMPOS, default=None ,verbose_name="Campo")
+    Table_name = models.CharField(max_length=200,verbose_name="Nombre de Tabla", default=None, blank=True, null=True)
+    Nombre_campo = models.CharField(max_length=100, default=None,verbose_name="Nombre del Campo", null=True, blank=True,)
+    Valor_Campo = models.CharField(max_length=100, default=None,verbose_name="Valor del Campo", blank=True, null=True)
     Prioridad = models.CharField(max_length=10,verbose_name="Prioridad")
     Created = models.DateTimeField(auto_now_add=True ,verbose_name="fecha de creación")
     Updated = models.DateTimeField(auto_now=True ,verbose_name="fecha de edición")

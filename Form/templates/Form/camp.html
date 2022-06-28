@@ -3,10 +3,24 @@
 {% block title %}Formulario{% endblock %}
 {% block content %}
 <main role="main">
+<div role="main" class="form-all"> 
+    <ul class="form-section page-section">
+      <li id="cid_1" class="form-input-wide" data-type="control_head">
+        <div style="display:table;width:100%">
+          <div class="form-header-group hasImage header-large" data-imagealign="Top">
+            <div class="header-logo">
+              <img src="https://www.jotform.com/uploads/mateooh97/form_files/Sodimac.62b5c6723eaad1.16789477.png" alt="" width="350" class="header-logo-top" />
+            </div>
+            <div class="header-text httal htvat">
+              <h1 id="header_1" class="form-header" data-component="header">
+                Campañas
+              </h1>
+            </div>
+          </div>
+        </div>
+      </li>
   <div class="container">
     <div class="row justify-content-md-center">
-      <div class="col-md-3">
-        <img src="{% static 'core/img/envio.png' %}" class="img-fluid"/>
       </div>
       <div class="col-md-6 mt-3">
         <h1>Campaña enviada</h1>
@@ -20,13 +34,12 @@
 				<div>
 					<b>El numero de registro es:</b> {{N_registros}}
 				</div>
-				<div>
-					<b>Published messages to: </b> {{topic}}
-				</div>
 			</table>
+      <div id="cid_23" class="form-input-wide">
+          <div style="margin-left:156px" data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+          <a class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField" href="{% url 'formulario' %}">regresar</a>
+        </div>
       </div>
-	<a class="nav-link" href="{% url 'formulario' %}">regresar</a>
-    </div>
   </div>
 </main>
 {% endblock %}

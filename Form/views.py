@@ -1,4 +1,5 @@
 from distutils.command.upload import upload
+import imp
 from webbrowser import get
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render, redirect
@@ -7,12 +8,15 @@ from django.core.files.storage import FileSystemStorage
 import json
 from Form.forms import Formulario
 from functions.functions import GCP_gestor
+from Camp.models import Camp
+from django.http import QueryDict
 # Create your views here.
 
 class FormView(HttpRequest):
 
     def formu_index(request):
         formulario = Formulario()
+        Campos = Camp()
         if request.method == 'POST':
             formulario = Formulario(data=request.POST)
             if formulario.is_valid():
@@ -26,10 +30,8 @@ class FormView(HttpRequest):
                 File = GCP_gestor.get_form()
                 print(File)
                 File['key_lecture']=int(0)
-                jsondata_get = 'post_data.json'
+                jsondata_get = 'post_data.Sjson'
                 GCP_gestor.post_form(jsondata_get, File)
                 print(File)
-                # if File['key_lecture'] == 1:
-                # topic_path = GCP_gestor.publisher()
             return render(request,'Form/camp.html', {'ID': File['Campanha_id'], 'Nombre_C': File['Nombre_campania'], 'N_registros': File['N_registros']})
         return render(request,'Form/form.html',{'form':formulario})

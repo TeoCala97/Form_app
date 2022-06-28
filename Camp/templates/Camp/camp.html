@@ -1,6 +1,7 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% block title %}Formulario{% endblock %}
+{% load crispy_forms_tags %}
 {% block content %}
 <main role="main">
   <div class="container">
@@ -21,7 +22,6 @@
 					<b>El numero de registro es: {{camp.N_registro}}</b>
 				</div>
 			</table>
-			
       </div>
 	<a class="nav-link" href="{% url 'formulario' %}">regresar</a>
     </div>
