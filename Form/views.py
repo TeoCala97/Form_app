@@ -30,7 +30,7 @@ class FormView(HttpRequest):
                 File = GCP_gestor.get_form()
                 print(File)
                 File['key_lecture']=int(0)
-                jsondata_get = 'post_data.Sjson'
+                jsondata_get = 'post_data.json'
                 GCP_gestor.post_form(jsondata_get, File)
                 print(File)
             return render(request,'Form/camp.html', {'ID': File['Campanha_id'], 'Nombre_C': File['Nombre_campania'], 'N_registros': File['N_registros']})
