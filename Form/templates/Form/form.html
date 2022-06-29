@@ -6,18 +6,11 @@
 <table>
 {% csrf_token %}
   <div role="main" class="form-all"> 
-    <ul class="form-section page-section">
-      <li id="cid_1" class="form-input-wide" data-type="control_head">
-        <div style="display:table;width:100%">
-          <div class="form-header-group hasImage header-large" data-imagealign="Top">
-            <div class="header-logo">
-              <img src="https://www.jotform.com/uploads/mateooh97/form_files/Sodimac.62b5c6723eaad1.16789477.png" alt="" width="350" class="header-logo-top" />
-            </div>
-            <div class="header-text httal htvat">
-              <h1 id="header_1" class="form-header" data-component="header">
-                Campañas
-              </h1>
-            </div>
+        <div class="form-header-group  header-large">
+          <div class="header-text httal htvat">
+            <h1 id="header_1" class="form-header" data-component="header">
+              Campañas
+            </h1>
           </div>
         </div>
       </li>
@@ -28,7 +21,7 @@
         </div>
       </li>
 	  {{form.Nombre_campanha.error}}
-      <li class="form-line" data-type="control_dropdown" id="id_15">
+      <li class="form-line " data-type="control_dropdown" id="id_15">
         <label class="form-label form-label-left form-label-auto" id="label_15" for="input_15"> Marca </label>
         <div id="cid_15" class="form-input">
           {{form.Marca}}

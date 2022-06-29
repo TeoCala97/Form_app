@@ -41,9 +41,6 @@ INSTALLED_APPS = [
     'Form',
     'Camp',
     'core',
-    'rest_framework',
-    'corsheaders',
-    'crispy_forms',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
