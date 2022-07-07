@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from ensurepip import bootstrap
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'Form',
     'Camp',
     'core',
+    'ckeditor',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
@@ -129,3 +132,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-cs-1072705387480-default.cs-us-east1-vpcf.cloudshell.dev']
+
+# Auth redirects
+LOGIN_REDIRECT_URL = 'formulario'
+LOGOUT_REDIRECT_URL = 'home'
+
+if DEBUG:
+    EMAIL_BACKEND = "django.core.mail.backend.filebased.EmailBackend"
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")

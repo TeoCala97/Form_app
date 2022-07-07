@@ -1,16 +1,10 @@
-from distutils.command.upload import upload
-import imp
-from webbrowser import get
-from django.http import HttpRequest, JsonResponse
-from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.core.files.storage import FileSystemStorage
-import json
+
+from django.http import HttpRequest
+from django.shortcuts import render
 from Form.forms import Formulario
 from functions.functions import GCP_gestor
 from Camp.models import Camp
-from django.http import QueryDict
-# Create your views here.
+
 
 class FormView(HttpRequest):
 

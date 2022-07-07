@@ -31,6 +31,16 @@
   <link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/themes/CSS/5495488a700cc478508b4567.css?themeRevisionID=550a3e68977cdf5a268b4567"/>
   <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/css/styles/payment/payment_feature.css?3.3.34240" />
 
+          <!-- All theme css files for theme switch -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jotfor.ms/css/styles/form.css?2.4.0" disabled>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jotfor.ms/css/styles/nova.css?2.4.0" disabled>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jotfor.ms/css/styles/buttons.css?2.4.0" disabled>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jotfor.ms/themes/CSS/defaultV2.css?2.4.0" >
+            <!-- Payment Right Panel CSS Regardless of Form Layout -->
+      <link rel="stylesheet" type="text/css" href="https://cdn.jotfor.ms/css/styles/payment/payment_builder.css?2.4.0">
+      <!-- CARD FORM SPECIFIC CSS -->
+        
+
 
 <style type="text/css" id="form-designer-style">
     /* Injected CSS Code */
@@ -244,11 +254,24 @@ JotForm.paymentExtrasOnTheFly([null,{"name":"clickPara","qid":"1","text":"Campan
               </li>
             </ul>
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/admin/">
-                  {% if request.user.is_staff %}Admin{% else %}Acceder{% endif %}
-                </a>
-              </li>
+              {% if not request.user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">
+                  Acceder
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'signup' %}">
+                  Registro
+                  </a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">
+                  Salir
+                  </a>
+                </li>
+              {% endif %}
             </ul>
           </div>
         </div>

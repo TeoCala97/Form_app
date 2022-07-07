@@ -24,21 +24,7 @@ class forms_api(models.Model):
         ("TODOS", "TODOS"),
         ("ACABADOS", "ACABADOS"),
         ("MIX", "MIX"),
-    ] 
-    CAMPOS = [
-        ("None", ""),
-        ("Si", "Si"),
-        ("ONLINE", "ONLINE"),
-        ("HARD", "HARD"),
-        ("SOFT", "SOFT"),
-        ("TODOS", "TODOS"),
-        ("ACABADOS", "ACABADOS"),
-    ]    
-    N_CAMP = [
-        ("None", ""),
-        ("CANJE", "CANJE"),
-        ("CAMP", "CAMP"),
-    ]    
+    ]   
     
     Nombre_campanha = models.CharField(max_length=200, verbose_name="Nombre Campaña")
     Marca =  models.CharField(max_length=10,choices=MARCAS,verbose_name="Marca")
