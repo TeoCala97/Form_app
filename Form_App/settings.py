@@ -140,3 +140,6 @@ LOGOUT_REDIRECT_URL = 'home'
 if DEBUG:
     EMAIL_BACKEND = "django.core.mail.backend.filebased.EmailBackend"
     EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+else:
+    # configurar
+    pass

@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
 from .views import HomePage
+from registration.views import SignUpView
 
 urlpatterns = [
-    path('Campañas_enviadas/', HomePage.as_view(), name="sample"),
+    path('', HomePage.as_view(), name="home"),
 ]
