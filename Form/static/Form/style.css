@@ -1,0 +1,180 @@
+:root{
+    --main-nav-color:#63CCE5;
+    --main-text-color: #000000;
+    --form-text--color:#ffffff;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    top: 0;
+    font-size: 62.5%;
+    font-family:'hp Simplified'
+}
+
+/* Doy estilo al body completo */
+body{
+    display: grid;
+    width: 100%;
+    height: 25rem;
+    grid-area: " nav main"
+                "nav main"
+                "nav main";
+    grid-template-columns: 20% 80%;
+}
+
+/* Comienzo agregar los elementos del nav */
+nav {
+    border: solid 0.1rem var(--main-nav-color);
+    height: 53rem;
+}
+
+nav .nav__image--letter{
+    width: 100%;
+    margin: 1rem auto;
+    height: 5rem;
+}
+
+nav .nav__logo--image{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 5rem 0.1rem;
+    text-align: center;  
+}
+nav .nav__logo--image a .nav__letter--menu{
+    height: 10rem;
+    width: 10rem;
+} 
+
+nav .nav__logo--image p{
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+}
+
+nav a img {
+    width: 6rem;
+    height: 6rem;
+}
+
+/* Aqui comienzolos estilos del main */
+main{
+ background: linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);
+ height: 53rem; 
+}
+
+main .section__main {
+    background: transparent url('./Fill_Sodimac.svg') repeat;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .section__main .section_main--form{
+    background-color: #ffffff;
+    border-radius: 3rem;
+    width: 95%;
+    height: 90%;
+}
+
+/* Doy estilos al titulo  del main */
+main .section__main .section_main--form .main__tittle{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 11rem;
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+}
+
+main .section__main .section_main--form .main__tittle img{
+    width: 12rem;
+    height: 11rem;
+}
+
+main .section__main .section_main--form .main__tittle p {
+    font-size: 5rem;
+    font-weight: 700;
+    font-style: normal;
+}
+
+main .section__main .section_main--form {
+    overflow-y: scroll;
+}
+
+main .section__main .section_main--form  form .section__inputs {
+    display: grid;
+    background: linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);
+    width: 80%;
+    margin: 1.2rem auto;
+    padding: 1rem;
+    border-radius: 3rem;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-left: 5rem;
+}
+
+main .section__main .section_main--form  form section label {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--form-text--color);
+}
+
+main .section__main .section_main--form  form section input, select {
+    height: 2.2rem;
+    font-weight:400;
+    font-size: 1.6rem;
+    border-radius: 3rem;
+}
+main .section__main .section_main--form  form section input {
+    padding: 1rem;
+}
+
+main .section__main .section_main--form  form section select {
+    text-align: center;
+}
+
+/* Organizo los inputs en las grillas */
+#section__first{
+    grid-template-columns: repeat(3, 3fr);
+    grid-template-rows: repeat(6, 2.2rem);
+    gap: 0.5rem;
+}
+main .section__main .section_main--form  form .section__inputs .Section__form--input{
+    display: grid;
+}
+/* Para el input del nombre d ela campaña */
+#input__campaing{
+    grid-column:1/4;
+    grid-row: 1/3;
+    width: 100%;
+}
+
+#input__trademark{
+    grid-column:1/2;
+    grid-row: 3/5;
+    width: 80% ;
+}
+
+#input__chanel{
+    grid-column:2/3;
+    grid-row: 3/5;
+    width: 80%;
+}
+
+#input__date{
+    grid-column:3/4;
+    grid-row: 3/5;
+    width: 80%;
+}
+
+#input__email{
+    grid-column:1/4;
+    grid-row: 5/7;
+    width: 80%;
+}
+
