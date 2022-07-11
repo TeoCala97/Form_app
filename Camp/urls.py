@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import CampView
 
 urlpatterns = [
-    path('campanha/campanha_enviada/', views.CampView.Camp_get, name="campaña"),
+    path('campanha_enviada/', CampView.as_view() , name="campaña"),
 ]
