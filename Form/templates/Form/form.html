@@ -9,11 +9,11 @@
     <title>Document</title>
   </head>
   <body>
-    <nav>
-        <img class="nav__image--letter" src="{% static 'Form/logo-sodimac-letter-black.svg' %}" alt="Estas sonn las letras de Sodimac en la barra de navegación">
+    <nav lang="en">
+        <img class="nav__image--letter" src="{% static 'Form/logo-sodimac.svg' %}" alt="Estas sonn las letras de Sodimac en la barra de navegación">
 
         <div class="nav__logo--image">
-          <a class="nav__image" href="#"><img class="nav__image--sodimac" src="{% static 'Form/logo-sodimac-color.svg' %}" alt="Este es el logo de Sodimac en la barra de navegación"></a>
+          <a class="nav__image" href="#"><img class="nav__image--sodimac" src="{% static 'Form/icon_sodimac.svg' %}" alt="Este es el logo de Sodimac en la barra de navegación"></a>
           <p class='nav__letter--menu'>Menú</p>
         </div>
         
@@ -32,14 +32,14 @@
         <section class="section_main--form">
           <section class="main__tittle">
               <img src="{% static 'Form/logo-campaing.svg' %}" alt="">
-              <p>Agregar Campaña</p>
+              <h1>Agregar Campaña</h1>
           </section>
-          <form class="jotform-form" action="{% url 'formulario'%}"  method="POST">
+          <form id="main__form--campanha" class="jotform-form" action="{% url 'formulario'%}"  method="POST">
             {% csrf_token %}
             {% comment %} Aquí comienza la primera sección-------------------------------
             ------------------------------------------------------------ {% endcomment %}
             {% comment %} Aquí esta el inpu de Nombre de campaña  {% endcomment %}
-              <section class="section__inputs" id="section__first">
+              <section class="section__inputs section__inputs--first">
                 <div class="Section__form--input" id="input__campaing">
                   <label class="form__label--input" id="label__campaing" for="cid_3">Nombre  de la Campaña </label>
                   {{form.Nombre_campanha}}
@@ -69,7 +69,7 @@
             {% comment %} Aquí termina la primera sección y comienza la segunda seccion------------------------------
             ------------------------------------------------------------------------------  {% endcomment %}
             {% comment %}Aquí termina comienza el tipo de usuario {% endcomment %}
-            <section class="section__inputs">
+            <section class="section__inputs section__inputs--second">
               {% comment %} Aquí comeienza el tipo de usuario {% endcomment %}
               <div class="Section__form--input">
                 <label class="form-label form-label-left form-label-auto" id="label_18" for="input_18"> Tipo de usuario </label>
@@ -82,7 +82,8 @@
               </div>
             </section>
             {% comment %} Aqui termina la segunda sección y comienza la tercera {% endcomment %}
-            <section class="section__inputs">
+            <section class="section__inputs seccion__inputs--
+            third">
               {% comment %} Aquí comienza el nombre del campo {% endcomment %}
               <div class="Section__form--input">
                 <label class="form-label form-label-left form-label-auto" id="label_29" for="input_29"> Nombre del Campo </label>
@@ -100,7 +101,9 @@
               </div>
             </section>
             {% comment %} Aqui termina la tercera sección{% endcomment %}
-            <input type="submit" value="Disparar" href="{% url 'campaña' %}">
+            <div class="form__button">
+              <input class="form__button--input" type="submit" value="Disparar" href="{% url 'campaña' %}">
+            </div>
           </form>
         </section>
       </section>
