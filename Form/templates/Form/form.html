@@ -10,22 +10,28 @@
   </head>
   <body>
     <nav lang="en">
-        <img class="nav__image--letter" src="{% static 'Form/logo-sodimac.svg' %}" alt="Estas sonn las letras de Sodimac en la barra de navegación">
-
-        <div class="nav__logo--image">
-          <a class="nav__image" href="#"><img class="nav__image--sodimac" src="{% static 'Form/icon_sodimac.svg' %}" alt="Este es el logo de Sodimac en la barra de navegación"></a>
-          <p class='nav__letter--menu'>Menú</p>
-        </div>
-        
-        <div class="nav__logo--image">
-          <a class="nav__image" href="#"><img class="nav__image--user" src="{% static 'Form/logo-user.svg'%}" alt="Este es el logo de usuarios en la barra de navegación"></a>
-          <P >Agregar Usuario</P>
+      
+        <div class="nav__image">
+            <img class="nav__image--letter" src="{% static 'Form/logo-sodimac.svg' %}" alt="Este es el logo de sodimac">
+            <img  class="nav__image--icon" src="{% static 'Form/list_icon.svg' %}" alt="Este es el menú desplegable">
         </div>
 
-        <div class="nav__logo--image">
-          <a class="nav__image" href="#"><img class="nav__image--campaña" src="{% static 'Form/logo-campaing.svg'%}" alt="Este es el logo de campaña en la barra de navegación"></a>
-          <p>Agregar Campaña</p>
+        {% comment %} Contenerdor de Imágenes {% endcomment %}
+        <div class="nav__container--image">
+          <div class="nav__logo--image">
+            <a href="#"><img class="nav__image--sodimac" src="{% static 'Form/icon_sodimac.svg' %}" alt="Este es el logo de Sodimac en la barra de navegación"></a>
+            <p class='nav__letter--menu'>Menú</p>
+          </div>
+          <div class="nav__logo--image">
+            <a href="#"><img class="nav__image--user" src="{% static 'Form/logo-user.svg'%}" alt="Este es el logo de usuarios en la barra de navegación"></a>
+            <P >Agregar Usuario</P>
+          </div>
+          <div class="nav__logo--image">
+            <a href="#"><img class="nav__image--campaña" src="{% static 'Form/logo-campaing.svg'%}" alt="Este es el logo de campaña en la barra de navegación"></a>
+            <p>Agregar Campaña</p>
+          </div>
         </div> 
+
     </nav>
     <main>
       <section class="section__main">

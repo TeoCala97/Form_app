@@ -15,8 +15,6 @@
 /* Doy estilo al body completo */
 body{
     display: grid;
-    width: 100%;
-    height: 25rem;
     grid-area: " nav main"
                 "nav main"
                 "nav main";
@@ -24,50 +22,58 @@ body{
 }
 
 /* Comienzo agregar los elementos del nav */
+/* Comeinzo a dar el espacio para el nav */
 nav {
     border: solid 0.1rem var(--main-nav-color);
-    height: 53rem;
     display: grid;
 }
 
-nav .nav__image--letter{
+/* Estilo para el iconco de sodimac */
+nav .nav__image .nav__image--letter{
     width: 100%;
     margin: 1rem auto;
     height: 5rem;
 }
 
-nav .nav__logo--image{
-    text-align: center;  
+/* Escondo la imágen para el menú desplegable responsivo */
+nav .nav__image .nav__image--icon{
+    visibility: collapse;
+    width: 0;
 }
-nav .nav__logo--image a .nav__letter--menu{
-    height: 10rem;
-    width: 10rem;
-} 
 
-nav .nav__logo--image p{
+/* Este es el contenedor de las imágenes del nav */
+nav .nav__container--image .nav__logo--image{
+    text-align: center;
+    height: 8rem;
+    margin: 3rem auto;
+}
+
+nav .nav__container--image .nav__logo--image p{
     font-size: 1.8rem;
     font-style: normal;
     font-weight: 400;
     visibility:collapse;
 }
 
-nav .nav__logo--image:hover p{
+nav .nav__container--image .nav__logo--image:hover p{
     font-size: 1.8rem;
     font-style: normal;
     font-weight: 400;
     visibility: visible;
 }
 
-
-nav a img {
+nav .nav__container--image .nav__logo--image a img {
     width: 7rem;
     height: 7rem;
     transition: transform 0.5s ease;
     transition-delay: 0s;
 }
-nav a:hover img, p{
+nav .nav__container--image a:hover img, p{
     transform: scale(1.1);
 }
+/* Aquí terminana los estilos del Nav */
+/* ----------------------------------- */
+
 
 /* Aqui comienzolos estilos del main */
 main{
@@ -113,10 +119,18 @@ main .section__main .section_main--form .main__tittle h1 {
     font-style: normal;
 }
 
+/* Coeminzo a darle estilos al form */
 #main__form--campanha{
     display: grid;
     grid-template-columns: 50% 50%;
     justify-content: center;
+}
+
+main .section__main .section_main--form  form .section__inputs--first{
+    grid-column: 1/3;
+    grid-template-columns: repeat(3, 3fr);
+    grid-template-rows: repeat(6, 2.2rem);
+    gap: 0.3rem;
 }
 
 main .section__main .section_main--form  form .section__inputs--second{
@@ -126,12 +140,6 @@ main .section__main .section_main--form  form .section__inputs--second{
     gap: 0.3rem;
 }
 
-main .section__main .section_main--form  form .section__inputs--first{
-    grid-column: 1/3;
-    grid-template-columns: repeat(3, 3fr);
-    grid-template-rows: repeat(6, 2.2rem);
-    gap: 0.3rem;
-}
 
 main .section__main .section_main--form  form .seccion__inputs--third{
     margin: auto;
@@ -150,7 +158,7 @@ main .section__main .section_main--form  form .section__inputs {
     padding: 1rem;
     border-radius: 3rem;
     box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-left: 5rem;
+    /* padding-left: 5rem; */
 }
 
 
@@ -199,6 +207,7 @@ main .section__main .section_main--form  form .form__button .form__button--input
     color:var(--form-text--color);
     font-size: 1.6rem;
 }
+
 main .section__main .section_main--form  form .form__button:hover .form__button--input{
     color: var(--main-text-color);
     background: var(--form-text--color);
@@ -234,6 +243,333 @@ main .section__main .section_main--form  form .form__button:hover .form__button-
     grid-row: 5/7;
     width: 80%;
 }
+/* aqui Comienzan los media querys */
+/* Doy estilo al body completo */
+@media (max-width: 426px){
+
+    body{
+        display:grid;
+        width: 100%;
+    }
+
+    nav{
+        grid-column: 1/3;
+        height: 8rem;
+        border: solid 0.1rem var(--main-nav-color);
+    }
+
+    nav .nav__image{
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+        height: 7rem;
+        margin: auto 1rem;
+    }
+        
+    nav .nav__image .nav__image--letter{
+        height: 6.5rem;
+        width: 20rem;
+        margin: 1rem;
+        background-color: var(--form-text--color);
+    }
+    nav .nav__image .nav__image--icon{
+        visibility: visible;
+        height: 4rem;
+        width: 4rem;
+        margin: 1rem;
+    }
+
+    nav .nav__container--image {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        visibility: collapse;
+        transition: all 2s ease-in-out;
+        transition-delay: 0s;
+    }
+    
+    nav .nav__container--image .nav__logo--image{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        background: var(--form-text--color);
+        height: 7rem;
+        width: 50%;
+        margin: 0 0 0 0.1rem;
+    }
+
+    nav .nav__container--image .nav__logo--image a{
+        justify-content: center;
+        height: 4.5rem;
+        width: 4.5rem;
+    }
+
+    nav .nav__container--image .nav__logo--image a img{
+        height: 4rem;
+        width: 4rem;
+        margin: 0 0 0 1rem;
+    }
+
+    nav .nav__container--image .nav__logo--image:hover p{
+        font-size: 1.2rem;
+        margin-left: 1rem;
+    }
+
+    nav .nav__image:hover ~ .nav__container--image{
+        visibility: visible;
+
+    }
+
+    /* Comienzo agregar los elementos del nav */
+    /* Aquí comienzo los estilos del main */
+    main{
+        grid-column: 1/3;
+        grid-row: 2/3;
+    }
+
+    /* Doy estilos al titulo  del main */
+    main .section__main .section_main--form .main__tittle{
+        height: 6.5rem;
+        position: static;
+    }
+
+    main .section__main .section_main--form .main__tittle img{
+        width: 5rem;
+        height: 6rem;
+    }
+
+    main .section__main .section_main--form .main__tittle h1 {
+        font-size: 2.5rem;
+
+    }
+
+    #main__form--campanha{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    main .section__main .section_main--form  form .section__inputs {
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);
+        width: 90%;
+        margin: 1.2rem auto;
+        border-radius: 1rem;
+        box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    main .section__main .section_main--form  form .form__button{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    main .section__main .section_main--form  form .form__button .form__button--input{
+        position: static;
+        background: linear-gradient(90deg, #314755 0%, #26A0DA 100%);
+        border: 1px solid #1596B7;
+        border-radius: 30px;
+        height: 4rem;
+        width: 7rem;
+        color:var(--form-text--color);
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media(min-width: 2560px){
+    nav {
+        border: solid 0.1rem var(--main-nav-color);
+        display: grid;
+        height: 144rem;
+    }
+    
+    /* Estilo para el iconco de sodimac */
+    nav .nav__image .nav__image--letter{
+        width: 100%;
+        margin: 1rem auto;
+        height: 20rem;
+    }
+    
+    /* Escondo la imágen para el menú desplegable responsivo */
+    nav .nav__image .nav__image--icon{
+        visibility: collapse;
+        width: 0;
+    }
+    
+    /* Este es el contenedor de las imágenes del nav */
+    nav .nav__container--image .nav__logo--image{
+        text-align: center;
+        height: 18rem;
+        margin: 10rem auto;
+    }
+    
+    nav .nav__container--image .nav__logo--image p{
+        font-size: 1.8rem;
+        font-style: normal;
+        font-weight: 400;
+        visibility:collapse;
+    }
+    
+    nav .nav__container--image .nav__logo--image:hover p{
+        font-size: 5rem;
+        font-style: normal;
+        font-weight: 400;
+        visibility: visible;
+    }
+    
+    nav .nav__container--image .nav__logo--image a img {
+        width: 15rem;
+        height: 15rem;
+        transition: transform 0.5s ease;
+        transition-delay: 0s;
+    }
+    nav .nav__container--image a:hover img, p{
+        transform: scale(1.1);
+    }
+    /* Aquí terminana los estilos del Nav */
+    /* ----------------------------------- */
+    
+    /* Aqui comienzolos estilos del main */
+    main{
+     background: linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);
+     height: 144rem; 
+    }
+    
+    main .section__main {
+        background: transparent url('./Fill_Sodimac.svg') repeat;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    main .section__main .section_main--form{
+        background-color: #ffffff;
+        border-radius: 3rem;
+        width: 95%;
+        height: 90%;
+    }
+    
+    /* Doy estilos al titulo  del main */
+    main .section__main .section_main--form .main__tittle{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        height: 30rem;
+        position: sticky;
+        top: 0;
+        background-color: #ffffff;
+    }
+    
+    main .section__main .section_main--form .main__tittle img{
+        width: 30rem;
+        height: 25rem;
+        margin: 1rem;
+    }
+    
+    main .section__main .section_main--form .main__tittle h1 {
+        font-size: 15rem;
+        font-weight: 700;
+        font-style: normal;
+    }
+    
+    /* Coeminzo a darle estilos al form */
+    #main__form--campanha{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-content: center;
+        height: 80%;
+    }
+    
+    main .section__main .section_main--form  form .section__inputs--first{
+        grid-column: 1/3;
+        grid-template-columns: repeat(3, 3fr);
+        grid-template-rows: repeat(6, 1fr);
+        gap: 0.5rem;
+    }
+    
+    main .section__main .section_main--form  form .section__inputs--second{
+        width: 100%;
+        justify-items: stretch;
+        gap: 0.3rem;
+    }
+    
+
+    main .section__main .section_main--form  form .seccion__inputs--third{
+        margin: auto;
+        gap: 0.5rem;
+    }
+    
+
+    main .section__main .section_main--form  form .section__inputs {
+        display: grid;
+        background: linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);
+        width: 80%;
+        margin: 1.2rem auto;
+        padding: 1rem;
+        border-radius: 3rem;
+        box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+        /* padding-left: 5rem; */
+    }
+    
+    
+    main .section__main .section_main--form  form section label {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 5rem;
+        color: var(--form-text--color);
+    }
+    
+    main .section__main .section_main--form  form section input, select {
+        height: 6rem;
+        font-weight:400;
+        font-size: 3rem;
+        border-radius: 3rem;
+    }
+    
+    main .section__main .section_main--form  form section input {
+        padding: 1rem;
+    }
+    
+    main .section__main .section_main--form  form section select {
+        text-align: center;
+    }
+    
+    /* Organizo los inputs en las grillas */
+    
+    main .section__main .section_main--form  form .section__inputs .Section__form--input{
+        display: grid;
+    }
+    
+    main .section__main .section_main--form  form .form__button{
+        grid-column: 1/3;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    main .section__main .section_main--form  form .form__button .form__button--input{
+        position: absolute;
+        top: 1280px;
+        background: linear-gradient(90deg, #314755 0%, #26A0DA 100%);
+        border: 1px solid #1596B7;
+        border-radius: 30px;
+        height: 7rem;
+        width: 18rem;
+        color:var(--form-text--color);
+        font-size: 4.5rem;
+    }
+    
+    main .section__main .section_main--form  form .form__button:hover .form__button--input{
+        color: var(--main-text-color);
+        background: var(--form-text--color);
+    }
+    
+}
 
 
+
+ 
 
