@@ -1,46 +1,19 @@
-{% extends 'core/base.html' %}
+{% extends 'form/index.html' %}
 {% load static %}
 {% block title %}Formulario{% endblock %}
-{% block content %}
-<main role="main">
-<div role="main" class="form-all"> 
-    <ul class="form-section page-section">
-      <li id="cid_1" class="form-input-wide" data-type="control_head">
-        <div style="display:table;width:100%">
-          <div class="form-header-group hasImage header-large" data-imagealign="Top">
-            <div class="header-logo">
-              <img src="https://www.jotform.com/uploads/mateooh97/form_files/Sodimac.62b5c6723eaad1.16789477.png" alt="" width="350" class="header-logo-top" />
-            </div>
-            <div class="header-text httal htvat">
-              <h1 id="header_1" class="form-header" data-component="header">
-                Campañas
-              </h1>
-            </div>
-          </div>
-        </div>
-      </li>
-  <div class="container">
-    <div class="row justify-content-md-center">
-      </div>
-      <div class="col-md-6 mt-3">
-        <h1>Campaña enviada</h1>
-			<table>
-				<div>
-					<b>El Id es:</b> {{ID}}
-				</div>
-				<div>
-					<b>El Nombre de la Campaña es:</b> {{Nombre_C}}
-				</div>
-				<div>
-					<b>El numero de registro es:</b> {{N_registros}}
-				</div>
-			</table>
-      <div id="cid_23" class="form-input-wide">
-          <div style="margin-left:156px" data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
-          <a class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField" href="{% url 'formulario' %}">regresar</a>
-        </div>
-      </div>
+{% block main %}
+<main id="main__container--campaing">
+  <div class="main__container--image">
+    <img src="{% static 'Form/logo-campaing.svg'%}" alt="Esta es la imagen que representa la campaña">
   </div>
+  <h1 class=>Campaña Agregada</h1>
+  <section class="main__container--letter">
+    <p class=>¡La campaña fue agregada con éxito!</p>
+    <ul>
+      <li> El id de la campaña es: </li>
+      <li>El nombre de la Campaña es: </li>
+    </ul>
+  </section>
 </main>
 {% endblock %}
 	
