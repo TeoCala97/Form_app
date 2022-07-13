@@ -13,18 +13,13 @@ class CampView(TemplateView):
     template_name = 'Camp/camp.html'
 
     def get(self,request,*args,**kwargs):
-        if request.user:
-            camp = Camp()
-            with open("post_data.json","r") as j:
-                datos=json.load(j)
-            print(datos)
-            # camp.Campanaha_id = datos['Campanha_id']
-            # camp.Nombre_campanha = datos['Nombre_campania']
-            # camp.N_registro = datos['N_registros']
-            # camp.save(update_fields=["Campanaha_id"]) 
-            # camp.save(update_fields=["Nombre_campanha"]) 
-            # camp.save(update_fields=["N_registro"]) 
+        with open("post_data.json","r") as j:
+            datos=json.load(j)
+        print(datos)
+        if datos['key_lecture'] == int(0):
             return render(request,self.template_name,{'ID': datos['Campanha_id'], 'Nombre_C': datos['Nombre_campania'], 'N_registros': datos['N_registros']})
+        else:
+            return render(request,self.template_name,{'ID': '?' , 'Nombre_C': '?', 'N_registros': '?'})
         
 
     
