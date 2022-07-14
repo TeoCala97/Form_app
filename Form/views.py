@@ -10,9 +10,9 @@ class FormView(HttpRequest):
 
     def formu_index(request):
         formulario = Formulario()
-        # Acordarme de poner el if
+        
         request.method == 'POST'
-        #     formulario = Formulario(data=request.POST)
+            # formulario = Formulario(data=request.POST)
         #     if formulario.is_valid():
         #         formulario.save()
         #         formu = dict(request.POST)
@@ -27,5 +27,5 @@ class FormView(HttpRequest):
         #         jsondata_get = 'post_data.json'
         #         GCP_gestor.post_form(jsondata_get, File)
         #         print(File)
-        #     return render(request,'Form/camp.html', {'ID': File['Campanha_id'], 'Nombre_C': File['Nombre_campania'], 'N_registros': File['N_registros']})
-        return render(request,'Form/menu.html',{'form':formulario})
+            # return render(request,'Form/men.html', {'ID': File['Campanha_id'], 'Nombre_C': File['Nombre_campania'], 'N_registros': File['N_registros']})
+        return render(request,'Form/camp.html',{'form':formulario})

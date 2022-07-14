@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Iniciar sesión{% endblock %}
+{% block content %}
+<style>.errorlist{color:red;}</style>
+<main role="main" class="form-all">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-9 mx-auto mb-5">
+        <h1>Sistema de gestión de Campañas</h1>
+        <p><input type="submit" class="btn btn-primary btn-block" value="Iniciar sesión" href="{% url 'login' %}"></p>
+        <p><input type="submit" class="btn btn-primary btn-block" value="resgistrar" href="{% url 'signup' %}"></p>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
