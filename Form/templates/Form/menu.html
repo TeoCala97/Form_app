@@ -1,0 +1,17 @@
+{% extends 'core/home.html' %}
+{% load  static %}
+{% block content %}
+<main id='main__menu'>
+    <section class="main__container--image">
+        <section class="container__image main__image--lefth">
+            <a href="#"><img src="{% static 'core/Form/logo-user.svg'%}" alt="Este es el logo de agregar ususario"></a>
+            <p>Agregar Usuario</p>
+        </section>
+
+        <section class="container__image main__image--right">
+            <a href="#"><img src="{% static 'core/Form/logo-campaing.svg'%}" alt="Este es el logo de agregar campaña"></a>
+            <p>Agregar Campaña</p>
+        </section> 
+    </section>
+</main>
+{% endblock %}

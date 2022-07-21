@@ -8,30 +8,37 @@
     <link rel="stylesheet" href="{% static 'core/Form/style.css' %}" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <title>Sodimac</title>
   </head>
   <body>
         <header class="header">
-        <img
-            class="header__image--sodimac"
-            src="{% static 'core/Form/logo-sodimac.svg' %}"
-            alt="Este es el logo de sodimac, la empresa"
-        />
+            <img
+                class="header__image--sodimac"
+                src="{% static 'core/Form/Sodimac.png' %}"
+                alt="Este es el logo de sodimac, la empresa"
+            />
         </header>
         <nav class="nav" lang="en">
             <div class="nav__container">
-                <a class="nav__image--menu" href="#"><img src="{% static 'core/Form/icon_sodimac.svg'%}" alt=""></a>
-                <P>Menú Inicial</P>
+                <a class="nav__image--menu" href="#"><img src="{% static 'core/Form/icon_sodimac.svg'%}" alt="this is logo for to go at menu"></a>
+                <P>Menú</P>
             </div>
             <div class="nav__container">
-                <a class="nav__image--user" href="#"><img src="{% static 'core/Form/logo-user.svg'%}" alt=""></a>
+                <a class="nav__image--user" href="#"><img src="{% static 'core/Form/logo-user.svg'%}" alt="this is logo for add user"></a>
                 <P>Agregar Usuario</P>
             </div>
             <div class="nav__container">
-                <a class="nav__image--user" href="#"><img src="{% static 'core/Form/logo-campaing.svg'%}" alt=""></a>
-                <p>Agregar Campaña</p> 
+                <a class="nav__image--campaing" href="#"><img src="{% static 'core/Form/logo-campaing.svg'%}" alt="this is logo for add user"></a>
+                <P>Agregar Campaña</P>
             </div>
+            <div class="nav__container">
+                <a class="nav__image--exit" href="#"><img src="{% static 'core/Form/exit__add.svg'%}" alt="this is the logo for exit"></a>
+                <p>Salir</p> 
+            </div>
+        
         </nav>
         {% block content %}
         {% endblock  %}
