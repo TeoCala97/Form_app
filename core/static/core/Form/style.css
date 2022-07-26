@@ -694,6 +694,11 @@ ul {
     #main__container--campaing ul li {
         font-size: 1.6rem;
     }
+    #main__signup .section__Form--signup p span,
+ul {
+    position: absolute;
+    visibility: collapse;
+}
 }
 
 
