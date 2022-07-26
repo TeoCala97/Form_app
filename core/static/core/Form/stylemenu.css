@@ -2,7 +2,7 @@
     --color-container:#ffffff;
     --color-background--body: linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);
 }
-
+/* En general para todos los estilos Heredados de Stylemenu */
 *{
     margin: 0;
     padding: 0;
@@ -10,7 +10,7 @@
     font-size: 62.5%;
     font-family: 'Poppins', sans-serif;;
 }
-
+/* En general para todos los estilos Heredados de Stylemenu */
 body{
     display: flex;
     flex-direction: column;
@@ -19,8 +19,9 @@ body{
     max-height: 100vh;
     width: 100%;
     background:var(--color-background--body);
+    margin: 0;
 }
-
+/* En general para todos los estilos Heredados de Stylemenu */
 header {
     position:relative;
     top: 0;
@@ -29,89 +30,32 @@ header {
     height: 8rem;
     background-color: var(--color-container);
 }
-
+/* En general para todos los estilos Heredados de Stylemenu */
 header img{
     width: 19rem;
     height: 5rem;
     margin: auto;
 }
-/* Aqui comienza el los estilos para el menu */
+
+/* En general para todos los estilos Heredados de Stylemenu */
 main{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     top: 6rem;
-    max-height:98vh;
-    width: 80%;
+    min-height:50vh;
+    min-width: 50%;
     justify-self: center;
     background: var(--color-container);
     border-radius: 3rem;   
-    margin-top: 1rem;
-}
-
-#main__menu .container__image{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 18rem;
-    height: 18rem;
-    border: 0.1rem solid #6DD5ED;
-    border-radius: 3rem;
     margin: 2rem;
 }
-
-#main__menu .container__image img{
-    width: 12rem;
-    height: 12rem;
+/* Aqui Comienza los estilos de password-reset*/
+#main__passwordreset--form{
+    min-width:40% ;
 }
 
-#main__menu .container__image p{
-    position: absolute;
-    visibility:collapse
-}
-/* Aqui comienza la animacion */
-
-#main__menu .main__image--lefth:hover{
-    border: 0.5rem solid #f3e57d;
-    background:var(--color-background--body);
-}
-#main__menu .main__image--lefth:hover img{
-    visibility: collapse;
-    position: absolute;
-}
-
-#main__menu .main__image--lefth:hover p{
-    visibility: visible;
-    position: relative;
-    color: #ffffff;
-    font-style: normal;
-    font-size: 2.5rem;
-    line-height: 115.5%;
-    text-align: center;
-}
-
-#main__menu .main__image--right:hover{
-    border: 0.5rem solid #f3e57d;
-    background:var(--color-background--body);
-}
-#main__menu .main__image--right:hover img{
-    visibility: collapse;
-    position: absolute;
-}
-
-#main__menu .main__image--right:hover p{
-    visibility: visible;
-    position: relative;
-    color: #ffffff;
-    font-style: normal;
-    font-size: 2.5rem;
-    line-height: 115.5%;
-    text-align: center;
-}
-/* Aqui termina el menu de inicio */
-/* Aqui copmienza los estilos de password reset*/
 main .main__image--sodimac{
     display: flex;
     justify-content: center;
@@ -128,7 +72,7 @@ main form .main__image img{
     height: 10rem;
 }
 
-main h2{
+main h1{
     font-weight: 600;
     font-size: 20px;
     line-height: 115.5%;
@@ -136,11 +80,15 @@ main h2{
     margin: 1rem ;
 }
 main p{
+    width: 80%;
     font-weight: 300;
     font-size: 18px;
     line-height: 115.5%;
     text-align: center;
     margin: 1rem;
+}
+main form{
+    width: 80%;
 }
 main form .form__input,.form__input--button{
     display: flex;
@@ -150,7 +98,7 @@ main form .form__input,.form__input--button{
     height: 5rem;
 }
 main form .form__input input{
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.6rem;
     line-height: 115.5%;
     width: 80%;
@@ -158,15 +106,12 @@ main form .form__input input{
     text-align: center;
 }
 main form .form__input input::placeholder{
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
-main form .form__input input[type=email]{
-    width: 50vh;
-}
 main form .form__input--button input{
     justify-self: center;
-    width: 10rem;
+    width: 20rem;
     height: 3.5rem;
     margin: 0.5rem 0;
     font-style: normal;
@@ -178,18 +123,16 @@ main form .form__input--button input{
     border: 0.1rem solid #ffffff;
     color: var(--color-container);
 }
-
 main form .form__input--button input:hover{
     color: #000000;
     background: #ffffff;
     border: 0.1rem solid #000000;
 }
 
+/* Aqui comienza los estilos de password-reset-done*/
 #main__login{
-    position: relative;
     top:2rem
 }
-
 main .main__form--login{
     display: flex;
     flex-direction: column;
@@ -218,9 +161,96 @@ main .main__text--warning a{
     font-weight: 400;
     text-decoration: none;
     color: #6DD5ED;
+    font-size: 1.4rem;
 }
 
 main .main__text--warning a:hover{
     color: #000000;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+}
+
+#main__reset--done{
+    min-width:40% ;
+}
+#main__menu .main__container--image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+}
+#main__menu .container__image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+    min-height: 80%;
+    border: 0.1rem solid #6DD5ED;
+    border-radius: 3rem;
+    margin: 2rem;
+    transition: all 0.4s linear;
+
+}
+
+#main__menu .container__image img{
+    width: 12rem;
+    height: 12rem;
+    padding: 1rem;
+}
+
+#main__menu .container__image p{
+    position: absolute;
+    visibility:collapse;
+}
+/* Aqui comienza la animacion */
+/* Animacion imagen de usuario */
+#main__menu .main__image--lefth:hover{
+    border: 0.5rem solid #f3e57d;
+}
+#main__menu .main__image--lefth:hover img{
+    transform: scale(0.8);
+}
+
+#main__menu .main__image--lefth:hover p{
+    visibility: visible;
+    position: relative;
+    color: #000000;
+    font-style: normal;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+/* Animacion imagen de Campaña */
+#main__menu .main__image--right:hover{
+    border: 0.5rem solid #f3e57d;
+}
+
+#main__menu .main__image--right:hover img{
+    transform: scale(0.8);
+}
+
+#main__menu .main__image--right:hover p{
+    visibility: visible;
+    position: relative;
+    color: #000000;
+    font-style: normal;
+    font-size: 1.4rem;
+    text-align: center;
+}
+/* Termina el menu de inicio */
+
+/* Comiezan los media Queries */
+@media(min-width: 1024px){
+    #main__menu .main__container--image{
+        flex-direction: row;
+        width: 90%;
+        height: 100%;
+        align-items: center;
+    }
+    #main__menu .container__image{
+        min-width: 45%;
+        min-height: 100%;
+    }
 }

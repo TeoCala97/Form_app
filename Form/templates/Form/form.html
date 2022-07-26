@@ -1,149 +1,150 @@
 {% extends 'core/base.html' %}
 {% load static %}
 {% block content %}
-  <main>
-    <h1>Agregar Campaña</h1>
+  <main id='main__form'>
+    <h1>Agregar Campaña</h1>   
     <form
-            id="main__form--campanha"
-            class="jotform-form"
-            action="{% url 'formulario'%}"
-            method="POST"
-          >
-            {% csrf_token %} {% comment %} Aquí comienza la primera
-            sección-------------------------------
-            ------------------------------------------------------------ {%
-            endcomment %} {% comment %} Aquí esta el inpu de Nombre de campaña
-            {% endcomment %}
-            <section class="section__inputs section__inputs--first">
-              <div class="Section__form--input" id="input__campaing">
-                <label
-                  class="form__label--input"
-                  id="label__campaing"
-                  for="cid_3"
-                  >Nombre de la Campaña
-                </label>
-                {{form.Nombre_campanha}} {{form.Nombre_campanha.error}}
-              </div>
-              {% comment %} Aqui está el input de marca {% endcomment %}
-              <div class="Section__form--input" id="input__trademark">
-                <label
-                  class="form-label form-label-left form-label-auto"
-                  id="label_15"
-                  for="input_15"
-                >
-                  Marca
-                </label>
-                {{form.Marca}}
-              </div>
-              {% comment %} Aquí está el input de Canal {% endcomment %}
-              <div class="Section__form--input" id="input__chanel">
-                <label
-                  class="form-label form-label-left form-label-auto"
-                  id="label_16"
-                  for="input_16"
-                >
-                  Canal
-                </label>
-                {{form.Canal}}
-              </div>
-              {% comment %} Aquí comienza al fecha {% endcomment %}
-              <div class="Section__form--input" id="input__date">
-                <label
-                  class="form-label form-label-left form-label-auto"
-                  id="label_10"
-                  for="lite_mode_10"
-                >
-                  Fecha de envío
-                </label>
-                {{form.Fecha_envio}}
-              </div>
-              {% comment %} Aquí comeinza el input deemail {% endcomment %}
-              <div class="Section__form--input" id="input__email">
-                <label
-                  class="form-label form-label-left form-label-auto"
-                  id="label_17"
-                  for="input_17"
-                >
-                  Email
-                </label>
-                {{form.Email}}
-              </div>
-            </section>
-            {% comment %} Aquí termina la primera sección y comienza la segunda
-            seccion------------------------------
-            ------------------------------------------------------------------------------
-            {% endcomment %} {% comment %}Aquí termina comienza el tipo de
-            usuario {% endcomment %}
-            <section class="section__inputs section__inputs--second">
-              {% comment %} Aquí comeienza el tipo de usuario {% endcomment %}
-              <div class="Section__form--input">
-                <label
-                  class="form-label form-label-left form-label-auto"
-                  id="label_18"
-                  for="input_18"
-                >
-                  Tipo de usuario
-                </label>
-                {{form.Tipo_usuario}}
-              </div>
-              {% comment %} Aquí comienza el nombre de la Tabla {% endcomment %}
-              <div class="Section__form--input">
-                <label
-                  class="form-label form-label-left"
-                  id="label_28"
-                  for="input_28"
-                >
-                  Nombre de Tabla
-                </label>
-                {{form.Table_name}}
-              </div>
-            </section>
-            {% comment %} Aqui termina la segunda sección y comienza la tercera
-            {% endcomment %}
-            <section class="section__inputs seccion__inputs--third">
-              {% comment %} Aquí comienza el nombre del campo {% endcomment %}
-              <div class="Section__form--input">
-                <label
-                  class="form-label form-label-left form-label-auto"
-                  id="label_29"
-                  for="input_29"
-                >
-                  Nombre del Campo
-                </label>
-                {{form.Nombre_campo}}
-              </div>
-              {% comment %} Aqui comienza el valor del campo {% endcomment %}
-              <div class="Section__form--input">
-                <label
-                  class="form-label form-label-left form-label-auto"
-                  id="label_30"
-                  for="input_30"
-                >
-                  Valor del Campo
-                </label>
-                {{form.Valor_Campo}}
-              </div>
-              {% comment %} Aquí colmienza la prioridad del campo {% endcomment%}
-              <div class="Section__form--input">
-                <label
-                  class="form-label form-label-left form-label-auto"
-                  id="label_32"
-                  for="input_32"
-                >
-                  Prioridad
-                </label>
-                {{form.Prioridad}}
-              </div>
-            </section>
-            {% comment %} Aqui termina la tercera sección{% endcomment %}
-            <div class="form__button">
-              <input
-                class="form__button--input"
-                type="submit"
-                value="Disparar"
-                href="{% url 'campaña' %}"
-              />
-            </div>
-    </form>
+               id="main__form--campanha"
+               class="jotform-form"
+               action="{% url 'formulario'%}"
+               method="POST"
+             >
+               {% csrf_token %} {% comment %} Aquí comienza la primera
+               sección-------------------------------
+               ------------------------------------------------------------ {%
+               endcomment %} {% comment %} Aquí esta el inpu de Nombre de campaña
+               {% endcomment %}
+               <section class="section__inputs section__inputs--first">
+                 <div class="Section__form--input" id="input__campaing">
+                   <label
+                     class="form__label--input"
+                     id="label__campaing"
+                     for="cid_3"
+                     >Nombre de la Campaña
+                   </label>
+                   {{form.Nombre_campanha}} {{form.Nombre_campanha.error}}
+                 </div>
+                 {% comment %} Aqui está el input de marca {% endcomment %}
+                 <div class="Section__form--input" id="input__trademark">
+                   <label
+                     class="form-label form-label-left form-label-auto"
+                     id="label_15"
+                     for="input_15"
+                   >
+                     Marca
+                   </label>
+                   {{form.Marca}}
+                 </div>
+                 {% comment %} Aquí está el input de Canal {% endcomment %}
+                 <div class="Section__form--input" id="input__chanel">
+                   <label
+                     class="form-label form-label-left form-label-auto"
+                     id="label_16"
+                     for="input_16"
+                   >
+                     Canal
+                   </label>
+                   {{form.Canal}}
+                 </div>
+                 {% comment %} Aquí comienza al fecha {% endcomment %}
+                 <div class="Section__form--input" id="input__date">
+                   <label
+                     class="form-label form-label-left form-label-auto"
+                     id="label_10"
+                     for="lite_mode_10"
+                   >
+                     Fecha de envío
+                   </label>
+                   {{form.Fecha_envio}}
+                 </div>
+                 {% comment %} Aquí comeinza el input deemail {% endcomment %}
+                 <div class="Section__form--input" id="input__email">
+                   <label
+                     class="form-label form-label-left form-label-auto"
+                     id="label_17"
+                     for="input_17"
+                   >
+                     Email
+                   </label>
+                   {{form.Email}}
+                 </div>
+               </section>
+               {% comment %} Aquí termina la primera sección y comienza la segunda
+               seccion------------------------------
+               ------------------------------------------------------------------------------
+               {% endcomment %} {% comment %}Aquí termina comienza el tipo de
+               usuario {% endcomment %}
+               <section class="section__inputs section__inputs--second">
+                 {% comment %} Aquí comeienza el tipo de usuario {% endcomment %}
+                 <div class="Section__form--input">
+                   <label
+                     class="form-label form-label-left form-label-auto"
+                     id="label_18"
+                     for="input_18"
+                   >
+                     Tipo de usuario
+                   </label>
+                   {{form.Tipo_usuario}}
+                 </div>
+                 {% comment %} Aquí comienza el nombre de la Tabla {% endcomment %}
+                 <div class="Section__form--input">
+                   <label
+                     class="form-label form-label-left"
+                     id="label_28"
+                     for="input_28"
+                   >
+                     Nombre de Tabla
+                   </label>
+                   {{form.Table_name}}
+                 </div>
+               </section>
+               {% comment %} Aqui termina la segunda sección y comienza la tercera
+               {% endcomment %}
+               <section class="section__inputs seccion__inputs--third">
+                 {% comment %} Aquí comienza el nombre del campo {% endcomment %}
+                 <div class="Section__form--input">
+                   <label
+                     class="form-label form-label-left form-label-auto"
+                     id="label_29"
+                     for="input_29"
+                   >
+                     Nombre del Campo
+                   </label>
+                   {{form.Nombre_campo}}
+                 </div>
+                 {% comment %} Aqui comienza el valor del campo {% endcomment %}
+                 <div class="Section__form--input">
+                   <label
+                     class="form-label form-label-left form-label-auto"
+                     id="label_30"
+                     for="input_30"
+                   >
+                     Valor del Campo
+                   </label>
+                   {{form.Valor_Campo}}
+                 </div>
+                 {% comment %} Aquí colmienza la prioridad del campo {% endcomment%}
+                 <div class="Section__form--input">
+                   <label
+                     class="form-label form-label-left form-label-auto"
+                     id="label_32"
+                     for="input_32"
+                   >
+                     Prioridad
+                   </label>
+                   {{form.Prioridad}}
+                 </div>
+               </section>
+               {% comment %} Aqui termina la tercera sección{% endcomment %}
+               <div class="form__button">
+                 <input
+                   class="form__button--input"
+                   type="submit"
+                   value="Disparar"
+                   href="{% url 'campaña' %}"
+                 />
+               </div>
+       </form>
+
   </main>
 {% endblock %}
