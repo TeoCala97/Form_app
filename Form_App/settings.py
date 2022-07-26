@@ -143,3 +143,5 @@ if DEBUG:
 else:
     # configurar
     pass
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

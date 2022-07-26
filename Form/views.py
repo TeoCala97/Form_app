@@ -11,7 +11,6 @@ from django.utils.decorators import method_decorator
 
 class StaffRequieredMixin(object):
     """Este Mixin requiere que el usuario sea miembro del Staff"""
-    # @method_decorator(staff_member_required)
     def dispatch(self, request,*arg,**kwarg):
         return super(StaffRequieredMixin,self).dispatch(request,*arg,**kwarg)
 
@@ -35,14 +34,14 @@ class FormView(FormView):
                 jsondata_post = 'cfg_audiencia_parametros_campanhas.json'
                 print(formu)
                 GCP_gestor.post_form(jsondata_post, formu)
-                File = GCP_gestor.get_form()
-                print(File)
-                File['key_lecture']=int(0)
-                jsondata_get = 'post_data.json'
-                GCP_gestor.post_form(jsondata_get, File)
-                print(File)
-            return render(request,'Form/camp.html', {'ID': File['Campanha_id'], 'Nombre_C': File['Nombre_campania'], 'N_registros': File['N_registros']})
-        return render(request,'Form/form.html',{'form':formulario})
+                # File = GCP_gestor.get_form()
+                # print(File)
+                # File['key_lecture']=int(0)
+                # jsondata_get = 'post_data.json'
+                # GCP_gestor.post_form(jsondata_get, File)
+                # print(File)
+            # return render(request,'Form/camp.html', {'ID': File['Campanha_id'], 'Nombre_C': File['Nombre_campania'], 'N_registros': File['N_registros']})
+            return reverse_lazy('campaña')
 
     def form_valid(self, form):
         return super().form_valid(form)
