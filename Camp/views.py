@@ -11,16 +11,20 @@ import json
 # Create your views here.
 class CampView(TemplateView):
     template_name = 'Camp/camp.html'
-
+    Camp = Camp()
+    
     def get(self,request,*args,**kwargs):
         with open("post_data.json","r") as j:
             datos=json.load(j)
         print(datos)
-        if datos['key_lecture'] == int(0):
-            return render(request,self.template_name,{'ID': datos['Campanha_id'], 'Nombre_C': datos['Nombre_campania'], 'N_registros': datos['N_registros']})
+        camp = Camp.objects.create(data=datos)
+        camp.save()
+        if Camp.datos['key_lecture'] == int(0):
+            return render(request,self.template_name,{'ID': Camp.datos['Campanha_id'], 'Nombre_C': Camp.datos['Nombre_campania'], 'N_registros': Camp.datos['N_registros']})
         else:
             return render(request,self.template_name,{'ID': '?' , 'Nombre_C': '?', 'N_registros': '?'})
         
+
 
     
         

@@ -1,19 +1,33 @@
 
 from django.http import HttpRequest
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from Form.forms import Formulario
 from functions.functions import GCP_gestor
 from Camp.models import Camp
+from django.views.generic.edit import FormView
+from django.contrib.admin.views.decorators import staff_member_required
+from django.utils.decorators import method_decorator
+
+class StaffRequieredMixin(object):
+    """Este Mixin requiere que el usuario sea miembro del Staff"""
+    # @method_decorator(staff_member_required)
+    def dispatch(self, request,*arg,**kwarg):
+        return super(StaffRequieredMixin,self).dispatch(request,*arg,**kwarg)
 
 
-class FormView(HttpRequest):
 
-    def formu_index(request):
+class FormView(FormView):
+    template_name = 'Form/form.html'
+    form_class = Formulario
+    success_url = reverse_lazy('campaña')
+
+    def post(self,request,*args,**kwargs):
         formulario = Formulario()
-        Campos = Camp()
         if request.method == 'POST':
             formulario = Formulario(data=request.POST)
             if formulario.is_valid():
+                print(request.POST)
                 formulario.save()
                 formu = dict(request.POST)
                 formu['key_lecture']=int(1)
@@ -29,3 +43,6 @@ class FormView(HttpRequest):
                 print(File)
             return render(request,'Form/camp.html', {'ID': File['Campanha_id'], 'Nombre_C': File['Nombre_campania'], 'N_registros': File['N_registros']})
         return render(request,'Form/form.html',{'form':formulario})
+
+    def form_valid(self, form):
+        return super().form_valid(form)
