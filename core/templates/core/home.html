@@ -1,17 +1,20 @@
+
 {% extends 'core/base.html' %}
-{% load static %}
-{% block title %}Iniciar sesión{% endblock %}
+{% load  static %}
 {% block content %}
-<style>.errorlist{color:red;}</style>
-<main role="main" class="form-all">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col-md-9 mx-auto mb-5">
-        <h1>Sistema de gestión de Campañas</h1>
-        <p><input type="submit" class="btn btn-primary btn-block" value="Iniciar sesión" href="{% url 'login' %}"></p>
-        <p><input type="submit" class="btn btn-primary btn-block" value="resgistrar" href="{% url 'signup' %}"></p>
-      </div>
-    </div>
-  </div>
+<main id='main__menu'>
+    <!-- Container image-->
+    <section class="main__container--image">
+        <!-- Container image User-->
+        <section class="container__image main__image--lefth">
+            <a href="#"><img src="{% static 'core/Form/logo-user.svg'%}" alt="Este es el logo de agregar ususario"></a>
+            <p>Agregar Usuario</p>
+        </section>
+        <!-- Container image logo-Campaing-->
+        <section class="container__image main__image--right">
+            <a href="#"><img src="{% static 'core/Form/logo-campaing.svg'%}" alt="Este es el logo de agregar campaÃ±a"></a>
+            <p>Agregar CampaÃ±a</p>
+        </section> 
+    </section>
 </main>
 {% endblock %}

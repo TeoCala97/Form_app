@@ -1,286 +1,43 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html class="supernova">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>{% block title %}{% endblock %}</title>
-  {% load static %}
-  <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700,700i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-  <!-- Estilos -->
-  <link href="{% static 'core/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'core/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-  <link href="{% static 'core/core/css/main.css' %}" rel="stylesheet">
-
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link rel="alternate" type="application/json+oembed" href="https://www.jotform.com/oembed/?format=json&amp;url=https%3A%2F%2Fform.jotform.com%2F221744131791655" title="oEmbed Form">
-  <link rel="alternate" type="text/xml+oembed" href="https://www.jotform.com/oembed/?format=xml&amp;url=https%3A%2F%2Fform.jotform.com%2F221744131791655" title="oEmbed Form">
-  <meta property="og:title" content="Formulario" >
-  <meta property="og:url" content="https://form.jotform.com/221744131791655" >
-  <meta property="og:description" content="Please click the link to complete this form." >
-  <meta name="slack-app-id" content="AHNMASS8M">
-  <link rel="shortcut icon" href="https://cdn.jotfor.ms/assets/img/favicons/favicon-2021.svg">
-  <link rel="canonical" href="https://form.jotform.com/221744131791655" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1" />
-  <meta name="HandheldFriendly" content="true" />
-  <title>Formulario</title>
-  <link href="https://cdn01.jotfor.ms/static/formCss.css?3.3.34240" rel="stylesheet" type="text/css" />
-  <link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/nova.css?3.3.34240" />
-  <style type="text/css">@media print{.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
-  <link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/themes/CSS/5495488a700cc478508b4567.css?themeRevisionID=550a3e68977cdf5a268b4567"/>
-  <link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/css/styles/payment/payment_feature.css?3.3.34240" />
-
-          <!-- All theme css files for theme switch -->
-        <link rel="stylesheet" type="text/css" href="https://cdn.jotfor.ms/css/styles/form.css?2.4.0" disabled>
-        <link rel="stylesheet" type="text/css" href="https://cdn.jotfor.ms/css/styles/nova.css?2.4.0" disabled>
-        <link rel="stylesheet" type="text/css" href="https://cdn.jotfor.ms/css/styles/buttons.css?2.4.0" disabled>
-        <link rel="stylesheet" type="text/css" href="https://cdn.jotfor.ms/themes/CSS/defaultV2.css?2.4.0" >
-            <!-- Payment Right Panel CSS Regardless of Form Layout -->
-      <link rel="stylesheet" type="text/css" href="https://cdn.jotfor.ms/css/styles/payment/payment_builder.css?2.4.0">
-      <!-- CARD FORM SPECIFIC CSS -->
-        
-
-
-<style type="text/css" id="form-designer-style">
-    /* Injected CSS Code */
-/*PREFERENCES STYLE*/
-    .form-all {
-      font-family: Inter, sans-serif;
-    }
-    .form-all .qq-upload-button,
-    .form-all .form-submit-button,
-    .form-all .form-submit-reset,
-    .form-all .form-submit-print {
-      font-family: Inter, sans-serif;
-    }
-    .form-all .form-pagebreak-back-container,
-    .form-all .form-pagebreak-next-container {
-      font-family: Inter, sans-serif;
-    }
-    
-    .form-label {
-      font-family: Inter, sans-serif;
-    }
-  
-    .form-label.form-label-auto {
-      
-    display: inline-block;
-    float: left;
-    text-align: left;
-  
-    }
-  
-    .form-line {
-      margin-top: px;
-      margin-bottom: 20px;
-    }
-  
-    .form-all {
-      max-width: 752px;
-      width: 100%;
-    }
-  
-    .form-label.form-label-left,
-    .form-label.form-label-right,
-    .form-label.form-label-left.form-label-auto,
-    .form-label.form-label-right.form-label-auto {
-      width: 230px;
-    }
-  
-    .form-all {
-      font-size: 23px
-    }
-    .form-all .qq-upload-button,
-    .form-all .qq-upload-button,
-    .form-all .form-submit-button,
-    .form-all .form-submit-reset,
-    .form-all .form-submit-print {
-      font-size: 23px
-    }
-    .form-all .form-pagebreak-back-container,
-    .form-all .form-pagebreak-next-container {
-      font-size: 23px
-    }
-  
-    .supernova .form-all, .form-all {
-      background-color: #fff;
-    }
-  
-    .form-all {
-      color: #2C3345;
-    }
-    .form-header-group .form-header {
-      color: #2C3345;
-    }
-   
-    .form-label-top,
-    .form-label-left,
-    .form-label-right,
-    .form-html,
-    .form-checkbox-item label,
-    .form-radio-item label {
-      color: #2C3345;
-    }
-    .form-sub-label {
-      color: #464d5f;
-    }
-  
-    .supernova {
-      background-color: undefined;
-    }
-    .supernova body {
-      background: transparent;
-    }
-  
-    .form-textbox,
-    .form-textarea,
-    .form-dropdown,
-    .form-radio-other-input,
-    .form-checkbox-other-input,
-    .form-captcha input,
-    .form-spinner input {
-      background-color: undefined;
-    }
-  
-      .supernova {
-        height: 100%;
-        background-repeat: repeat;
-        background-attachment: scroll;
-        background-position: center top;
-      }
-      .supernova {
-        background-image: url("https://www.jotform.com/uploads/mateooh97/form_files/sodimac.62bcaf741e5b39.74714734.jpg");
-      }
-      #stage {
-        background-image: url("https://www.jotform.com/uploads/mateooh97/form_files/sodimac.62bcaf741e5b39.74714734.jpg");
-      }
-    
-    .form-all {
-      background-image: none;
-    }
-  
-    .form-all {
-      position: relative;
-    }
-    .form-all:before {
-      content: "";
-      background-image: url("https://www.jotform.com/uploads/mateooh97/form_files/Logotipo_Sodimac.62bcaf381b79a9.72793228.svg");
-      display: inline-block;
-      height: 113.93617021276596px;
-      position: absolute;
-      background-size: 720px 113px;
-      background-repeat: no-repeat;
-      width: 100%;
-    }
-    .form-all {
-      margin-top: 133px !important;
-    }
-    .form-all:before {
-      top: -123px;
-      background-position: top center;
-      left: 0;
-    }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/Form/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Sodimac</title>
+  </head>
+  <body>
+        <header class="header">
+            <img
+                class="header__image--sodimac"
+                src="{% static 'core/Form/Sodimac.svg' %}"
+                alt="Este es el logo de sodimac, la empresa"
+            />
+        </header>
+        <nav class="nav" lang="en">
            
-  .ie-8 .form-all:before { display: none; }
-  .ie-8 {
-    margin-top: auto;
-    margin-top: initial;
-  }
-  
-  /*PREFERENCES STYLE*//*__INSPECT_SEPERATOR__*/
-.form-label.form-label-auto {
+            <div class="nav__container">
+                <a class="nav__image--user" href="signup"><img src="{% static 'core/Form/logo-user.svg'%}" alt="this is logo for add user"></a>
+                <P>Agregar Usuario</P>
+            </div>
+            <div class="nav__container">
+                <a class="nav__image--campaing" href="campaña"><img src="{% static 'core/Form/logo-campaing.svg'%}" alt="this is logo for add user"></a>
+                <P>Agregar Campaña</P>
+            </div>
+            <div class="nav__container">
+                <a class="nav__image--exit" href="login"><img src="{% static 'core/Form/exit__add.svg'%}" alt="this is the logo for exit"></a>
+                <p>Salir</p> 
+            </div>
         
-        display: inline-block;
-        float: left;
-        text-align: left;
-      
-      }
-    /* Injected CSS Code */
-</style>
-
-<link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/buttons/form-submit-button-wood.css?3.3.34240"/>
-<script src="https://cdn03.jotfor.ms/static/prototype.forms.js?3.3.34240" type="text/javascript"></script>
-<script src="https://cdn01.jotfor.ms/static/jotform.forms.js?3.3.34240" type="text/javascript"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/punycode/1.4.1/punycode.js"></script>
-<script type="text/javascript">	JotForm.newDefaultTheme = false;
-	JotForm.extendsNewTheme = false;
-	JotForm.newPaymentUIForNewCreatedForms = false;
-	JotForm.clearFieldOnHide="disable";
-
-	JotForm.init(function(){
-	/*INIT-START*/
-if (window.JotForm && JotForm.accessible) $('input_3').setAttribute('tabindex',0);
-
- JotForm.calendarMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
- JotForm.calendarDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
- JotForm.calendarOther = {"today":"Today"};
- var languageOptions = document.querySelectorAll('#langList li'); 
- for(var langIndex = 0; langIndex < languageOptions.length; langIndex++) { 
-   languageOptions[langIndex].on('click', function(e) { setTimeout(function(){ JotForm.setCalendar("10", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":""}); }, 0); });
- } 
- JotForm.onTranslationsFetch(function() { JotForm.setCalendar("10", false, {"days":{"monday":true,"tuesday":true,"wednesday":true,"thursday":true,"friday":true,"saturday":true,"sunday":true},"future":true,"past":true,"custom":false,"ranges":false,"start":"","end":""}); });
- JotForm.formatDate({date:(new Date()), dateField:$("id_"+10)});
-if (window.JotForm && JotForm.accessible) $('input_28').setAttribute('tabindex',0);
-    if(typeof $('input_32').spinner !== 'undefined') {$('input_32').spinner({ imgPath:'https://cdn.jotfor.ms/images/', width: '60', maxValue:'', minValue:'', allowNegative: false, addAmount: 1, value:'' });}
-    $('input_32').up(2).setAttribute('tabindex','');
-      JotForm.alterTexts({"alphabetic":"Este campo solo puede contener letras","alphanumeric":"Este campo solo puede contener letras y números.","characterLimitError":"Too many Characters.  The limit is","confirmClearForm":"¿Está seguro de querer borra el formulario?","confirmEmail":"Correo electrónico no coincide","currency":"Este campo sólo puede contener valores de moneda","cyrillic":"Este campo solo puede contener caracteres cirílicos","email":"Introduzca una dirección e-mail válida","fillMask":"El valor de campo debe llenar la mascara","generalError":"Existen errores en el formulario, por favor corríjalos antes de continuar.","generalPageError":"Hay errores en esta página. Por favor, corríjalos antes de continuar.","gradingScoreError":"El puntaje total debería ser sólo \"menos que\" o \"igual que\"","incompleteFields":"Existen campos requeridos incompletos. Por favor complételos.","inputCarretErrorA":"El valor introducido no puede ser menor que el mínimo especificado:","inputCarretErrorB":"Entrada no debe ser mas grande que el valor maximo:","lessThan":"Tu cuenta debería ser menor o igual que","maxDigitsError":"El máximo de dígitos permitido es","maxSelectionsError":"El número máximo de selecciones es","minSelectionsError":"El número mínimo de selección requerido es","multipleFileUploads_emptyError":"El fichero {file} está vacío; por favor, selecciona de nuevo los ficheros sin él.","multipleFileUploads_fileLimitError":"Solo {fileLimit} carga de archivos permitida.","multipleFileUploads_minSizeError":"{file} is demasiado pequeño, el tamaño mínimo de fichero es: {minSizeLimit}.","multipleFileUploads_onLeave":"Se están cargando los ficheros, si cierras ahora, se cancelará dicha carga.","multipleFileUploads_sizeError":"{file} es demasiado grande; el tamaño del archivo no debe superar los {sizeLimit}.","multipleFileUploads_typeError":"El fichero {file} posee una extensión no permitida. Sólo están permitidas las extensiones {extensions}.","numeric":"Este campo sólo admite valores numéricos","pastDatesDisallowed":"La fecha debe ser futura","pleaseWait":"Por favor, espere ...","required":"Campo requerido.","requireEveryCell":"Todas las celdas son requeridas.","requireEveryRow":"Todas las filas son obligatorias.","requireOne":"Por lo menos un campo requerido","submissionLimit":"¡Lo siento! Sólo se permite una entrada. Múltiples envíos están desactivados para este formulario.","uploadExtensions":"Solo puede subir los siguientes archivos:","uploadFilesize":"Tamaño del archivo no puede ser mayor que:","uploadFilesizemin":"Tamañao de archivo no puede ser menos de:","wordLimitError":"Too many words. The limit is"});
-	/*INIT-END*/
-	});
-
-   JotForm.prepareCalculationsOnTheFly([null,{"name":"clickPara","qid":"1","text":"Campanas","type":"control_head"},null,{"name":"nombreCompleto","qid":"3","text":"Nombre Campana","type":"control_textbox"},null,null,null,null,null,null,{"description":"","name":"fechaDe","qid":"10","text":"Fecha de envio","type":"control_datetime"},null,null,null,null,{"description":"","name":"marca","qid":"15","subLabel":"","text":"Marca","type":"control_dropdown"},{"description":"","name":"marca16","qid":"16","subLabel":"","text":"Canal","type":"control_dropdown"},{"description":"","name":"email17","qid":"17","subLabel":"ejemplo@ejemplo.com","text":"Email","type":"control_email"},{"description":"","name":"tipoDe","qid":"18","subLabel":"","text":"Tipo de usuario","type":"control_dropdown"},{"name":"divisor","qid":"19","text":"Divisor","type":"control_divider"},null,null,null,{"name":"enviar","qid":"23","text":"Enviar","type":"control_button"},null,null,null,null,{"description":"","name":"nombreCampana","qid":"28","subLabel":"","text":"Nombre de  Tabla","type":"control_textbox"},{"description":"","name":"nombreDel","qid":"29","subLabel":"","text":"Nombre del Campo","type":"control_dropdown"},{"description":"","name":"campo","qid":"30","subLabel":"","text":"Campo","type":"control_dropdown"},null,{"description":"","name":"prioridad","qid":"32","subLabel":"","text":"Prioridad","type":"control_spinner"}]);
-   setTimeout(function() {
-JotForm.paymentExtrasOnTheFly([null,{"name":"clickPara","qid":"1","text":"Campanas","type":"control_head"},null,{"name":"nombreCompleto","qid":"3","text":"Nombre Campana","type":"control_textbox"},null,null,null,null,null,null,{"description":"","name":"fechaDe","qid":"10","text":"Fecha de envio","type":"control_datetime"},null,null,null,null,{"description":"","name":"marca","qid":"15","subLabel":"","text":"Marca","type":"control_dropdown"},{"description":"","name":"marca16","qid":"16","subLabel":"","text":"Canal","type":"control_dropdown"},{"description":"","name":"email17","qid":"17","subLabel":"ejemplo@ejemplo.com","text":"Email","type":"control_email"},{"description":"","name":"tipoDe","qid":"18","subLabel":"","text":"Tipo de usuario","type":"control_dropdown"},{"name":"divisor","qid":"19","text":"Divisor","type":"control_divider"},null,null,null,{"name":"enviar","qid":"23","text":"Enviar","type":"control_button"},null,null,null,null,{"description":"","name":"nombreCampana","qid":"28","subLabel":"","text":"Nombre de  Tabla","type":"control_textbox"},{"description":"","name":"nombreDel","qid":"29","subLabel":"","text":"Nombre del Campo","type":"control_dropdown"},{"description":"","name":"campo","qid":"30","subLabel":"","text":"Campo","type":"control_dropdown"},null,{"description":"","name":"prioridad","qid":"32","subLabel":"","text":"Prioridad","type":"control_spinner"}]);}, 20); 
-</script>
-
-</head>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'core/img/sodimac.png' %}"  width="200" height="30"/></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ned" aria-controls="ned" aria-expanded="false">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="ned">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                {% if not request.user.is_authenticated %}
-                {% else %}
-                <a class="nav-link" href="{% url 'formulario' %}">Crear Campaña</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'campaña' %}">Campañas enviadas</a>
-                </li>
-              </ul>
-            {% endif %}
-            <ul class="navbar-nav">
-              {% if not request.user.is_authenticated %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}">
-                  Acceder
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'signup' %}">
-                  Registro
-                  </a>
-                </li>
-              {% else %}
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logout' %}">
-                  Salir
-                  </a>
-                </li>
-              {% endif %}
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-<body>
-{% block content%}{% endblock%}
-<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
-</body>
+        </nav>
+        {% block content %}
+        {% endblock  %}
+  </body>
 </html>
-<script type="text/javascript">JotForm.ownerView=true;</script>
