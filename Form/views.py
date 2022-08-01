@@ -34,14 +34,14 @@ class FormView(FormView):
                 jsondata_post = 'cfg_audiencia_parametros_campanhas.json'
                 print(formu)
                 GCP_gestor.post_form(jsondata_post, formu)
-                # File = GCP_gestor.get_form()
-                # print(File)
-                # File['key_lecture']=int(0)
-                # jsondata_get = 'post_data.json'
-                # GCP_gestor.post_form(jsondata_get, File)
-                # print(File)
-            # return render(request,'Form/camp.html', {'ID': File['Campanha_id'], 'Nombre_C': File['Nombre_campania'], 'N_registros': File['N_registros']})
-            return reverse_lazy('campaña')
+                File = GCP_gestor.get_form()
+                print(File)
+                File['key_lecture']=int(0)
+                jsondata_get = 'post_data.json'
+                GCP_gestor.post_form(jsondata_get, File)
+                print(File)
+            return render(request,'Form/camp.html', {'ID': File['Campanha_id'], 'Nombre_C': File['Nombre_campania'], 'N_registros': File['N_registros']})
+            # return reverse_lazy('campaña')
 
     def form_valid(self, form):
         return super().form_valid(form)
