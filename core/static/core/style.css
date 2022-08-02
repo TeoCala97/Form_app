@@ -1,43 +1,38 @@
 :root {
-    --color-container: #ffffff;
-    --color-background--body: linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --background:#F5F5F5;
 }
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-size: 62.5%;
-    font-family: 'Poppins', sans-serif;
-    ;
+    font-family: 'Lato', sans-serif;
 }
 
 body {
     height: 100vh;
     width: 100%;
     margin: 0;
-    display: grid;
-    grid-template-areas: "header header"
-        "nav nav"
-        "main main";
-    grid-template-columns: minmax(25%, 425px) minmax(75%, 425px);
-    background: var(--color-background--body);
-}
-
-/* Comienzo a dar estilo al header para el primer Media query */
-header {
-    grid-area: header;
-    grid-column: 1/3;
     display: flex;
-    width: 100%;
-    height: 8rem;
-    background-color: var(--color-container);
-}
-
-header img {
-    width: 19rem;
-    height: 5rem;
-    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--background);
 }
 
 /* Comienzo a dar estilo al nav en el primer Media */
@@ -47,7 +42,7 @@ nav {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
-    height: 9.5rem;
+    height: 10rem;
     background: var(--color-background--body)
 }
 
@@ -59,8 +54,8 @@ nav .nav__container {
     text-align: center;
     background: #ffffff;
     border-radius: 50%;
-    width: 6.7rem;
-    height: 6.4rem;
+    width: 7rem;
+    height: 80%
 }
 
 nav .nav__container a {
@@ -72,10 +67,10 @@ nav .nav__container a {
 }
 
 nav .nav__container a img {
-    width: 4rem;
-    height: 4rem;
+    width: 5rem;
+    height: 5rem;
     line-height: 0;
-    transition: transform 0.8s ease;
+    transition: transform 0.5s ease;
     transition-delay: 0.1s;
     align-self: center;
 }
@@ -87,19 +82,28 @@ nav .nav__container p {
     width: 5rem;
     text-align: center;
     visibility: collapse;
-    transition: all 0.4s linear;
+    transition: all 0.2s linear;
 
 }
 
-/* Aqui esta la transoformacion del nav */
 nav .nav__container:hover a img {
     visibility: collapse;
     position: absolute;
 }
-
-nav .nav__container:hover {
-    border: rgb(235, 210, 19) solid 0.3rem;
+/* Juego de Colores de nav */
+nav .nav__container--menu:hover {
+    border:var(--yellow) solid 0.3rem;
 }
+nav .nav__container--user:hover {
+    border:var(--blue) solid 0.3rem;
+}
+nav .nav__container--campaing:hover {
+    border:var(--red) solid 0.3rem;
+}
+nav .nav__container--logout:hover {
+    border:var(--yellow) solid 0.3rem;
+}
+/* Termina Juego de Colores del nav */
 
 nav .nav__container:hover p {
     visibility: visible;
@@ -112,242 +116,220 @@ nav .nav__container:hover p {
 /* Aqui comienzo agregar estilos a cada uno de los templates */
 main {
     grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 85%;
+    background: var(--white);
+    border-radius: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
 }
-
-/* Aqui comienza el estilo del formulario para agregar campaña */
 
 main h1 {
-    grid-column: 1/2;
-    grid-area: h1;
-    width: 100%;
-    height: 6rem;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 2.2rem;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background: var(--color-container)
-}
-
-/* Le doy estilo al formulario de Agregar Campaña */
-main form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);
-}
-
-main form .section__inputs {
-    display: flex;
-    flex-direction: column;
-    justify-items: stretch;
-    width: 90%;
-    height: 70%;
-    background: var(--color-container);
-    border-radius: 2rem;
-    margin: 0.5rem;
-    padding: 2rem 1rem;
-    box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.Section__form--input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-main form .section__inputs label {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.8rem;
-    display: flex;
-    align-items: center;
+    font-weight: 700;
+    font-size: 3rem;
     text-align: center;
-    margin: 0.5rem;
-
+    color: #007bff;
 }
 
-main form .section__inputs .Section__form--input input,
-select {
-    position: relative;
-    align-self: center;
-    width: 80%;
-    height: 3rem;
-    text-align: center;
-    font-weight: 300;
-    font-size: 1.5rem;
-    margin: 0 auto;
-}
-
-main form .form__button {
-    display: flex;
-    background-color: var(--color-container);
-    width: 100%;
-    justify-content: center;
-}
-
-main form .form__button input {
-    width: 10rem;
-    height: 3.5rem;
-    margin: 0.5rem 0;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 1.5rem;
-    text-align: center;
-    background: linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);
-    color: var(--color-container);
-    border-radius: 30px;
-    border: 0.1rem solid #ffffff;
-    justify-self: center;
-}
-
-main form .form__button input:hover {
-    background: #ffffff;
-    color: #000000;
-    border: 0.1rem solid #000000;
-}
-
-/* Aqui comienza el estilo para el ingreso de usuarios  */
-#main__signup {
-    grid-area: main;
-    justify-self: center;
-    display: flex;
-    flex-direction: column;
-    height: 90%;
-    background: var(--color-container);
-    border-radius: 30px;
-    width: 90%;
-}
-
-#main__signup .main__image {
+main .main__image{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 11rem;
+    height: 10rem;
 }
-
-#main__signup .main__image img {
-    justify-content: cenetr;
-    width: 8.2rem;
+main .main__image img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     height: 8rem;
 }
 
-#main__signup .section__Form--signup {
-    background: #ffffff;
-    display: flex;
-    align-items: stretch;
-    margin: 0.5rem 0;
-}
-
-#main__signup .section__Form--signup p {
+main .section__Form--signup {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#main__signup .section__Form--signup p label {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 1rem 0;
-}
-
-#main__signup .section__Form--signup p select,
-input {
-    position: relative;
-    align-self: center;
-    width: 80%;
-    height: 2.5rem;
-    text-align: center;
-    font-weight: 300;
-    font-size: 1.5rem;
-    margin: 0.5rem auto;
-}
-
-#main__signup .section__Form--signup p span,
-ul {
-    position: absolute;
-    visibility: collapse;
-}
-
-.form__button--singup {
-    display: flex;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 1rem auto;
 }
 
-.form__button--singup input {
-    width: 10rem;
-    height: 3rem;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 1.2rem;
-    text-align: center;
-    background: linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);
-    color: var(--color-container);
-    border-radius: 30px;
-    justify-self: center
-}
-
-/* Aqui terminan los estilos para el ingreso de ususariios */
-#main__container--campaing {
-    grid-area: main;
+main .section__Form--signup p {
     display: flex;
     flex-direction: column;
-    align-self: center;
-    min-height: 90%;
+    justify-content: center;
     width: 80%;
-    background: var(--color-container);
-    border-radius: 30px;
-    margin: 0 auto;
-    padding: 1rem;
+    height: 100%;
+    margin: 1rem;
 }
-
-#main__container--campaing p,
-span,
-ul {
-    visibility: visible;
-    position: relative;
-}
-
-#main__container--campaing p {
-    font-size: 1.5rem;
-}
-
-#main__container--campaing ul {
-    list-style: none;
-    margin-top: 8rem;
-}
-
-#main__container--campaing ul li {
+main .section__Form--signup p input {
+    text-align: center;
+    height: 2.8rem;
     font-size: 1.6rem;
 }
+main .section__Form--signup p input::placeholder {
+    font-size: 1.4rem;
+}
+main .section__Form--signup p input:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+main .section__Form--signup p label{
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+main .section__Form--signup p span {
+    visibility: collapse;
+    position: absolute;
+}
+main .section__Form--signup ul {
+    visibility: collapse;
+    position: absolute;
+}
+main .section__Form--signup .form__button--singup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 1rem;
+}
+
+main .section__Form--signup .form__button--singup input{
+    width: 20rem;
+    height: 3rem;
+    font-weight: 400;
+    font-size: 1.8rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    background: var(--red);
+    color: var(--white);
+}
+
+main .section__Form--signup .form__button--singup input:hover{
+    color: var(--red);
+    background: #ffffff;
+    border: 0.1rem solid #000000;
+}
+
+.main__campaing {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: var(--white);
+    height: 70%;
+    width: 80%;
+    padding: 0;
+
+}
+.main__campaing p {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--gray-dark);
+}
+.main__campaing ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 95%;
+    margin: 0.5rem;
+}
+.main__campaing ul li {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--gray-dark);
+    margin: 0.5rem;
+}
+
+.main__form{
+    padding: 0;
+}
+.main__form--campanha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+    width: 90%;
+    overflow-y: scroll;
+}
+
+.main__form .section__inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border:var(--gray-dark) solid 0.1rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    width: 80%;
+    padding: 1rem;
+    margin: 1rem;
+}
+.main__form--campanha .section__inputs .Section__form--input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0.2rem;
+}
+.main__form .section__inputs .Section__form--input label{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #007bff;
+}
+.main__form .section__inputs .Section__form--input input,select{
+    height: 2.5rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: center;
+}
+.main__form .section__inputs .Section__form--input input,select{
+    height: 2.5rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: center;
+}
+.main__form .section__inputs .Section__form--input input:hover{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.main__form .main__form--campanha .form__button input{
+    width: 20rem;
+    height: 3rem;
+    font-weight: 400;
+    font-size: 1.8rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    background: var(--red);
+    color: var(--white);
+}
+.main__form .main__form--campanha .form__button input:hover{
+    color: var(--red);
+    background: #ffffff;
+    border: 0.1rem solid #000000;
+}
+
 
 /* Aquí comienzan los media queries */
 @media(min-width: 769px) {
     body {
         display: grid;
-        grid-template-areas: "nav header"
-            "nav main"
-            "nav main";
+        grid-template-areas:"nav main"
+                            "nav main";
         grid-template-columns: 20% 80%;
-        grid-template-rows: 10% repeat(2, 45%);
+        grid-template-rows:repeat(2, 50%);
+        justify-items: center;
         width: 100%;
-        min-height: 70vh;
+        min-height: 100vh;
         margin: 0;
-    }
-
-    header {
-        position: sticky;
-        grid-area: header;
-        display: flex;
-        justify-content: center;
-        height: 100%;
     }
 
     nav {
@@ -387,320 +369,6 @@ ul {
 
     nav .nav__container:hover p {
         visibility: visible;
-        width: 16rem;
-    }
-
-    #main__form {
-        grid-area: main;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: var(--color-container);
-        border-radius: 3rem;
-        height: 80%;
-        min-width: 80%;
-        margin: 2rem auto;
-        justify-self: center;
-    }
-
-    main h1 {
-        grid-column: 1/2;
-        grid-area: h1;
         width: 100%;
-        height: 5rem;
-        font-style: normal;
-        font-weight: 700;
-        font-size: 2.6rem;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        background: transparent;
     }
-
-    #main__form h1::after {
-        content: url('./logo-campaing.svg');
-        ;
-        align-content: flex-start;
-
-    }
-
-    /* Aquí comeinzo a dar estilo al formulario de Agregar Campaña */
-    main form {
-        display: grid;
-        align-content: space-between;
-        align-items: flex-start;
-        grid-template-areas: "first first"
-            "second third "
-            "button button";
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        width: 80%;
-        height: 60%;
-        justify-items: center;
-        background: #ffffff;
-        overflow-y: scroll;
-        gap: 3rem;
-    }
-
-    main form .section__inputs {
-        border: 5px solid #6DD5ED;
-        width: 100%;
-        height: 100%;
-    }
-
-    main form .section__inputs .Section__form--input input,
-    select {
-        font-weight: 300;
-        font-size: 1.2rem;
-        width: 80%;
-        height: 2.5rem;
-        text-align: center;
-    }
-
-    main form .section__inputs .Section__form--input label {
-        font-weight: 500;
-        font-size: 1.3rem;
-        width: 80%;
-        text-align: center;
-    }
-
-    main form .section__inputs--first {
-        grid-area: first;
-        display: grid;
-        grid-template-areas: "date email"
-            "campaing campaing"
-            "trademark channel";
-        grid-template-columns: minmax(50%, 50%) minmax(50%, 50%);
-        grid-template-rows: repeat(3, minmax(1fr, 50%));
-        background: var(--color-container);
-        height: 22rem;
-    }
-
-    #input__date {
-        grid-area: date
-    }
-
-    #input__email {
-        grid-area: email;
-    }
-
-    #input__campaing {
-        grid-area: campaing;
-    }
-
-    #input__trademark {
-        grid-area: trademark;
-    }
-
-    #input__chanel {
-        grid-area: channel;
-    }
-
-    main form .section__inputs--second {
-        grid-area: second;
-        display: flex;
-        justify-content: center;
-        height: 19rem;
-
-    }
-
-    main form .seccion__inputs--third {
-        grid-area: third;
-        display: flex;
-        justify-content: center;
-        height: 19rem;
-    }
-
-    main form .form__button {
-        grid-column: 1/3;
-    }
-
-    /* Aquí Termina el formulario de la campaña */
-
-    #main__container--campaing h1 {
-        color: #000000
-    }
-
-    #main__container--campaing h1::after {
-        content: url('./logo-campaing.svg');
-    }
-
-    main .main__container--letter {
-        color: #000000;
-        background: linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);
-        border-radius: 30px;
-        margin: 2rem;
-    }
-
-    main .main__container--letter p {
-        font-style: normal;
-        font-weight: 700;
-        font-size: 3rem;
-        width: 100%;
-        text-align: center;
-        margin: 3rem auto;
-        color: #ffffff;
-    }
-
-    main .main__container--letter ul {
-        width: 90%;
-        margin: 1rem auto;
-        padding-left: 1rem;
-        border-radius: 30px;
-        color: #000000
-    }
-
-    main .main__container--letter ul li {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.8rem;
-        list-style: none;
-        margin: 2rem 0;
-    }
-
-    main form .form__button--input {
-        grid-row: 1/4;
-        width: 100%;
-        justify-items: center;
-    }
-
-
-    /* aquí comienzo a dar estilo campaña agregada */
-    #main__signup {
-        grid-area: main;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: var(--color-container);
-        border-radius: 3rem;
-        height: 85%;
-        min-width: 80%;
-        margin: 2rem auto;
-        justify-self: center;
-    }
-
-    #main__signup .main__image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 5rem;
-    }
-
-    #main__signup .main__image img {
-        justify-content: cenetr;
-        width: 5rem;
-        height: 5rem;
-    }
-
-    #main__signup .section__Form--signup {
-        background: #ffffff;
-        display: flex;
-        justify-content: flex-start;
-        align-items: stretch;
-        margin: 0.1rem 0;
-    }
-
-    #main__signup .section__Form--signup p {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0 0;
-    }
-
-    #main__signup .section__Form--signup p label {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 1.5rem;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        margin: 0 0;
-    }
-
-    #main__signup .section__Form--signup p select,
-    input {
-        position: relative;
-        align-self: center;
-        width: 80%;
-        height: 2.5rem;
-        text-align: center;
-        font-weight: 300;
-        font-size: 1.5rem;
-        margin: 0 auto;
-    }
-
-    #main__signup .section__Form--signup p span,
-    ul {
-        position: absolute;
-        visibility: collapse;
-    }
-
-    .form__button--singup {
-        display: flex;
-        justify-content: center;
-    }
-
-    .form__button--singup input {
-        width: 10rem;
-        height: 3rem;
-        font-style: normal;
-        font-weight: 300;
-        font-size: 1.2rem;
-        text-align: center;
-        background: linear-gradient(90deg, #2193B0 0%, #6DD5ED 100%);
-        color: var(--color-container);
-        border-radius: 30px;
-        justify-self: center
-    }
-
-    .form__button--singup input:hover {
-        background: #ffffff;
-        color: #000000;
-        border: 0.1rem solid #000000;
-    }
-
-    #main__container--campaing {
-        grid-area: main;
-        display: flex;
-        flex-direction: column;
-        align-self: center;
-        min-height: 80%;
-        width: 80%;
-        background: var(--color-container);
-        border-radius: 30px;
-        margin: 0 auto;
-        padding: 5rem;
-    }
-
-    #main__container--campaing p,
-    span,
-    ul {
-        visibility: visible;
-        position: relative;
-    }
-
-    #main__container--campaing p {
-        font-size: 1.5rem;
-    }
-
-    #main__container--campaing ul {
-        list-style: none;
-        margin-top: 8rem;
-    }
-
-    #main__container--campaing ul li {
-        font-size: 1.6rem;
-    }
-    #main__signup .section__Form--signup p span,
-ul {
-    position: absolute;
-    visibility: collapse;
 }
-}
-
-
-
-

@@ -134,7 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = ['https://8000-cs-1072705387480-default.cs-us-east1-vpcf.cloudshell.dev']
 
 # Auth redirects
-LOGIN_REDIRECT_URL = 'formulario'
+LOGIN_REDIRECT_URL = 'menu'
 LOGOUT_REDIRECT_URL = 'home'
 
 if DEBUG:

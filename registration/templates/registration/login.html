@@ -1,36 +1,41 @@
-{% extends 'core/base.html' %}
+{% extends 'core/home.html' %}
 {% load static %}
-{% block title %}Iniciar sesión{% endblock %}
 {% block content %}
 <style>.errorlist{color:red;}</style>
-<main role="main" class="form-all">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col-md-9 mx-auto mb-5">
-      {% if 'register' in request.GET %}
-        <p style="color:green;">Usuario registrado correctamente, ya puedes ingresar.</p>
-      {% endif %}
-        <form action="" method="post">{% csrf_token %}
-          <h3 class="mb-4">Iniciar sesión</h3>
-
-          {% if form.non_field_errors %}
+<!--Login User-->
+<main id="main__login">
+    {% if 'register' in request.GET %}
+      <p class='form__text--warning' style="color:green;">Usuario registrado correctamente, ya puedes ingresar.</p>
+    {% endif %}
+    <!-- Container form-->
+      <form class='main__form--login' action="" method="post">
+        {% csrf_token %}
+        <div class="main__image">
+          <img src="{% static 'core/icon_sodimac.svg'%}" alt="this is logo for add user"></a>
+        </div>
+        {% if form.non_field_errors %}
             <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
-          {% endif %}
-
-          <p>Usuario
-            <input type="text" name="username" autofocus maxlength="254" required
+        {% endif %}
+        <!-- Container input User -->
+        <div class='form__input form__input--login'>
+          <p>Usuario</p>
+          <input type="text" name="username" autofocus maxlength="254" required
               id="id_username" class="form-control" placeholder="Nombre de usuario"/>
-          </p>
-          <p>Contraseña
-            <input type="password" name="password" required
-              id="id_password" class="form-control" placeholder="Contraseña"/>
-          </p>
-          <p><input type="submit" class="btn btn-primary btn-block" value="Acceder"></p>
-        </form>
-        <p>¿Ha olvidado su contraseña? Puede restaurarla <a href="{% url 'password_reset' %}" >aquí</a>.
-        </p>
-      </div>
-    </div>
-  </div>
+        </div>
+        <!-- Container input Password -->
+        <div class='form__input form__input--login'>
+          <p>Contraseña</p>
+          <input type="password" name="password" required
+              id="id_password" class="form-control" placeholder="Escriba su contraseña"/>
+        </div>
+        <!-- Container input button -->
+        <div class="form__input form__input--button">
+            <input type="submit" class="btn btn-primary btn-block" value="Ingresar">
+        </div>
+      </form>
+      <p class='main__text--warning'>¿Ha olvidado su contraseña? Puede restaurarla
+         <a href="{% url 'password_reset' %}" 
+         >aquí</a>.
+      </p>
 </main>
 {% endblock %}

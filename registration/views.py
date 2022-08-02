@@ -14,9 +14,9 @@ class SignUpView(CreateView):
         return '?register'
 
     def get_form(self, form_class=None):
-        form = super(SignUpView,self).get_form()
-        form.fields['username'].widget = forms.TextInput(attrs={'class':'form-control mb-2','placeholder':'nombre de usuario'})
+        form = super(SignUpView,self).get_form()                    
+        form.fields['password2'].widget = forms.PasswordInput(attrs={'class':'form-control mb-2','placeholder':'contraseña'})
+        form.fields['password1'].widget = forms.PasswordInput(attrs={'class':'form-control mb-2','placeholder':'confirme Contraseña'})
         form.fields['email'].widget = forms.EmailInput(attrs={'class':'form-control mb-2','placeholder':'email'})
-        form.fields['password1'].widget = forms.PasswordInput(attrs={'class':'form-control mb-2','placeholder':'contraseña'})
-        form.fields['password2'].widget = forms.PasswordInput(attrs={'class':'form-control mb-2','placeholder':'confirme Contraseña'})
+        form.fields['username'].widget = forms.TextInput(attrs={'class':'form-control mb-2','placeholder':'nombre de usuario'})
         return form

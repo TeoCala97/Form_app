@@ -1,9 +1,10 @@
 
-from django.http import HttpRequest
+
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from Form.forms import Formulario
 from functions.functions import GCP_gestor
+from django.views.generic.base import TemplateView
 from Camp.models import Camp
 from django.views.generic.edit import FormView
 from django.contrib.admin.views.decorators import staff_member_required
@@ -45,3 +46,6 @@ class FormView(FormView):
 
     def form_valid(self, form):
         return super().form_valid(form)
+
+class MenuView(TemplateView):
+    template_name = 'Form/menu.html'
