@@ -1,41 +1,42 @@
-{% extends 'core/home.html' %}
+{% extends 'core/resgis.html' %}
 {% load static %}
 {% block content %}
-<style>.errorlist{color:red;}</style>
-<!--Login User-->
-<main id="main__login">
-    {% if 'register' in request.GET %}
-      <p class='form__text--warning' style="color:green;">Usuario registrado correctamente, ya puedes ingresar.</p>
-    {% endif %}
-    <!-- Container form-->
-      <form class='main__form--login' action="" method="post">
-        {% csrf_token %}
-        <div class="main__image">
-          <img src="{% static 'core/icon_sodimac.svg'%}" alt="this is logo for add user"></a>
-        </div>
-        {% if form.non_field_errors %}
-            <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
-        {% endif %}
-        <!-- Container input User -->
-        <div class='form__input form__input--login'>
-          <p>Usuario</p>
-          <input type="text" name="username" autofocus maxlength="254" required
-              id="id_username" class="form-control" placeholder="Nombre de usuario"/>
-        </div>
-        <!-- Container input Password -->
-        <div class='form__input form__input--login'>
-          <p>Contraseña</p>
-          <input type="password" name="password" required
-              id="id_password" class="form-control" placeholder="Escriba su contraseña"/>
-        </div>
-        <!-- Container input button -->
-        <div class="form__input form__input--button">
-            <input type="submit" class="btn btn-primary btn-block" value="Ingresar">
-        </div>
-      </form>
-      <p class='main__text--warning'>¿Ha olvidado su contraseña? Puede restaurarla
-         <a href="{% url 'password_reset' %}" 
-         >aquí</a>.
-      </p>
-</main>
+<form class="form-horizontal mt-4 pt-2" action="{% url 'formulario' %}">
+  <div class="mb-3">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username"
+          placeholder="Enter username">
+  </div>
+
+  <div class="mb-3">
+      <label for="userpassword">Password</label>
+      <input type="password" class="form-control" id="userpassword"
+          placeholder="Enter password">
+  </div>
+
+  <div class="mb-3">
+          <div class="form-check">
+              <input type="checkbox" class="form-check-input"
+                  id="customControlInline">
+              <label class="form-label"
+                  for="customControlInline">Remember me</label>
+          </div>
+  </div>
+
+  <div>
+      <button class="btn btn-primary w-100 waves-effect waves-light"
+          type="submit">Log In</button>
+  </div>
+
+  <div class="mt-4 text-center">
+      <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock me-1"></i> Forgot your password?</a>
+  </div>
+</form>
+{% endblock %}
+
+{% block content2 %}
+<div class="mt-5 text-center text-white">
+    <p>Don't have an account ?<a href="{% url 'signup' %}" class="fw-bold text-white"> Register</a> </p>
+    <p>© <script>document.write(new Date().getFullYear())</script> Morvin. Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://1.envato.market/themesdesign" target="_blank">Themesdesign</a></p>
+</div>
 {% endblock %}

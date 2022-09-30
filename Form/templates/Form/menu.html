@@ -1,26 +1,5 @@
-{% extends 'core/home.html' %}
+{% extends 'core/index.html' %}
 {% load  static %}
 {% block content %}
-<main class='main__menu'>
-        <div class="main__image">
-          <img src="{% static 'core/sodi.png'%}" alt="this is logo for add user" width="600"  ></a>
-        </div>
-    <!-- Container image-->
-    <section class="main__container--image">
-        <!-- Container image User-->
-        <section class="container__image main__image--lefth">
-            <a href="{% url 'signup' %}"><img src="{% static 'core/logo-user.svg'%}" alt="Este es el logo de agregar ususario"></a>
-            <p>Agregar Usuario</p>
-        </section>
-        <!-- Container image logo-Campaing-->
-        <section class="container__image main__image--right">
-            <a href="{% url 'formulario' %}"><img src="{% static 'core/logo-campaing.svg'%}" alt="Este es el logo de agregar campaña"></a>
-            <p>Agregar Campaña</p>
-        </section> 
-        <section class="container__image main__image--right">
-            <a href="{% url 'login' %}"><img src="{% static 'core/exit__add.svg''%}" alt="Este es el logo de agregar campaña"></a>
-            <p>salir</p>
-        </section> 
-    </section>
-</main>
+
 {% endblock %}
