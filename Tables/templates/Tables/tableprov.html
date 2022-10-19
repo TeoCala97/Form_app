@@ -1,0 +1,52 @@
+{% extends 'core/index.html' %}
+{% load static %}
+{% block contentitle %}
+<div class="page-title">
+    <h4>FORMULARIOS</h4>
+        <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Funciones</a></li>
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Tablas</a></li>
+            <li class="breadcrumb-item active">Provisiones</li>
+        </ol>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <div class="page-content-wrapper">
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+                  <div class="card-body">
+
+                      <h4 class="header-title">Tabla de Provisiones</h4>
+                      <p class="card-title-desc">Base de datos de las provisiones generados</code>.
+                      </p>
+
+                      <table id="table_campanha" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                          <thead>
+                          <tr>
+                              <th>Nombre</th>
+                              <th>Selección</th>
+                              <th>Fecha</th>
+                          </tr>
+                          </thead>
+
+
+                          <tbody>
+                          {% for item in prov %}
+                            <tr>
+                                <td>{{item.qname}}</td>
+                                <td>{{item.select}}</td>
+                                <td>{{item.fecha}}</td>
+                            </tr>
+                          {% endfor %}
+                          </tbody>
+                      </table>
+
+                  </div>
+              </div>
+          </div> <!-- end col -->
+      </div> <!-- end row -->
+  </div>
+</div> <!-- container-fluid -->
+{% endblock %}

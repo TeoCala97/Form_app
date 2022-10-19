@@ -1,0 +1,80 @@
+{% extends 'core/index.html' %}
+{% load  static %}
+{% block contentitle %}
+<div class="page-title">
+    <h4>FORMULARIOS</h4>
+        <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Funciones</a></li>
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Formularios</a></li>
+            <li class="breadcrumb-item active">Provisiones</li>
+        </ol>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="page-content-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+            <div id="TablaReferencia"></div>
+            </div>
+        </div>
+
+        <div class="row">              
+            <div class="col-xl-5">
+                <div class="card">
+
+                        <div class="card-body">
+                            <h1 class="header-title mb-4 ">Agregar Provisiones</h1>  
+                                {% if request.POST %}
+                                    <h3>El formulario a insertado un nuevo quary</h3>
+                                {% else  %}
+                                    <p>Esta app está diseñada para insertar una tabla en BigQuary, para ello<br>
+                                    se está utilizando una formulario que permite insertar los caracteres de<br> 
+                                    la consulta.</p>
+                                {% endif %}
+                                <form novalidate action="" method="POST">
+                                {% csrf_token %}
+                                    <section class="section__inputs section__inputs--first">
+                                            <div class="Section__form--input" id="input__campaing">
+                                            <label class="form__label--input" id="label__campaing" for="cid_3">
+                                                Nombre del Query
+                                            </label>
+                                            {{form.qname}} {{form.qname.error}}
+                                            </div>
+                                    <section class="section__inputs section__inputs--first">
+                                            <div class="Section__form--input" id="input__campaing">
+                                            <label class="form__label--input" id="label__campaing" for="cid_3">
+                                                Opción
+                                            </label>
+                                            {{form.select}} {{select.error}}
+                                            </div>
+                                    <section class="section__inputs section__inputs--first">
+                                            <div class="Section__form--input" id="input__campaing">
+                                            <label class="form__label--input" id="label__campaing" for="cid_3">
+                                                Fecha
+                                            </label>
+                                            {{form.fecha}} {{form.fecha.error}}
+                                            </div>
+                                    {% if request.POST %}
+                                        <a href="">Nuevo Inserción</a>
+                                    {% else  %}
+                                        <div class="form-horizontal mt-4 pt-2">
+                                        <input
+                                            class="btn btn-primary w-100 waves-effect waves-light"
+                                            type="submit"
+                                            value="Disparar"
+                                            href="{% url 'formulario' %}"
+                                        />
+                                        </div>
+                                    {% endif %}
+                                </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'core/index.html' %}
+{% load static %}
+{% block contentitle %}
+<div class="page-title">
+    <h4>Dashboard</h4>
+        <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Menú</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="page-content-wrapper">
+        <div class="row"> 
+            <div class="col-md-6 col-xl-3">          
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="{% static 'core\images\product\campanas.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="text-primary font-size-16 mt-0">Campañas</h4>
+                                <p class="card-text">Formulario para generar las campañas correspondientes al diario.</p>
+                        </div>
+                        <div class="card-body">
+                            <a href="{% url 'formulario' %}" class="card-link">Ingresar</a>
+                            <a href="{% url 'tablacamp' %}" class="card-link">Tabla</a>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">          
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="{% static 'core\images\product\provisiones.jpg' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="text-primary font-size-16 mt-0">Provisiones</h4>
+                                <p class="card-text">Formulario para insertar datos en BigQuery en especifico para provisiones</p>
+                        </div>
+                        <div class="card-body">
+                            <a href="{% url 'provisiones' %}" class="card-link">Ingresar</a>
+                            <a href="{% url 'tablaprov' %}" class="card-link">Tabla</a>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xl-3">          
+                <div class="card">
+                    <img class="card-img-top img-fluid" src="{% static 'core\images\product\proximo.png' %}" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="text-primary font-size-16 mt-0">Proximamente</h4>
+                                <p class="card-text">Accesos rapidos para nuevas aplicaciones a implementar</p>
+                        </div>
+                        <div class="card-body">
+                            <a href="{% url 'mainte' %}" class="card-link">Ingresar</a>
+                            <a href="{% url 'mainte' %}" class="card-link">Tabla</a>
+                        </div>
+                </div>
+            </div>
+        </div> <!-- end col -->  
+    </div>                
+</div>
+
+    
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

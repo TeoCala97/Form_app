@@ -5,12 +5,12 @@
 
     {% load static %}
     <meta charset="utf-8" />
-    <title>Login page | Morvin - Admin & Dashboard Template</title>
+    <title>Sodimac || CALA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{% static 'core/images/favicon.ico' %}">
+    <link rel="shortcut icon" href="{% static 'core/images/icon.png' %}">
 
     <!-- Bootstrap Css -->
     <link href="{% static 'core/css/bootstrap.min.css' %}" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -39,15 +39,9 @@
                             <div class="card-body">
                                 <div class="px-2 py-3">
 
-
-                                    <div class="text-center">
-                                        <a href="index.html">
-                                            <img src="{% static 'core/images/logo-dark.png' %}" height="22" alt="logo">
-                                        </a>
-
-                                        <h5 class="text-primary mb-2 mt-4">Welcome Back !</h5>
-                                        <p class="text-muted">Sign in to continue to Morvin.</p>
-                                    </div>
+                                    {% block content3 %}
+                                    {% endblock%}
+                                    
                                     {% block content %}
                                     {% endblock %}
 

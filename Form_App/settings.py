@@ -42,12 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Form',
-    'Camp',
+    'Tables',
     'core',
     'ckeditor',
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -139,8 +138,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = ['https://8000-cs-1072705387480-default.cs-us-east1-vpcf.cloudshell.dev']
 
 # Auth redirects
-LOGIN_REDIRECT_URL = 'formulario'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'dash'
+LOGOUT_REDIRECT_URL = 'login' 
 
 if DEBUG:
     EMAIL_BACKEND = "django.core.mail.backend.filebased.EmailBackend"

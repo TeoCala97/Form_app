@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import FormView,MenuView
+from .views import FormView,QueryView
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-    path('menu/', MenuView.as_view(), name="menu"),
-    path('campanha/', FormView.as_view(), name="formulario"),
-    path('campanha/campanha_enviada/', FormView.as_view(), name="campaña"),
+    path('formularios/campanha/', login_required(FormView.as_view()), name="formulario"),
+    path('formularios/reportes/', login_required(FormView.as_view()), name="resporte"),
+    path('formularios/provisiones/', login_required(QueryView.as_view()), name="provisiones"),
 ]

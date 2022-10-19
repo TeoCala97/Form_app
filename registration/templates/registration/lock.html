@@ -1,0 +1,43 @@
+{% extends 'core/resgis.html' %}
+{% load static %}
+{% block content3 %}
+<div class="text-center">
+    <a href="index.html">
+        <img src="{% static 'core/images/sodimac-logo.png' %}" height="22" alt="logo">
+    </a>
+
+    <h5 class="text-primary mb-2 mt-4">Pantalla de Bloqueo</h5>
+    <p class="text-muted">Ingrese nuevamente</p>
+</div>
+{% endblock%}
+
+{% block content %}
+<style>.errorlist{color:red;}</style>
+
+ <form class="" action="{% url 'login' %}" method="POST">{% csrf_token %}
+    {% if form.non_field_errors %}
+        <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
+    {% endif %}
+         
+    <div class="user-thumb text-center mb-4 mt-4">
+        <img src="{% static 'core/images/users/avatar.png' %}" class="rounded-circle img-thumbnail avatar-md" alt="thumbnail">
+        <h5 class="font-size-15 mt-3">{{user}}</h5>
+    </div>
+
+    <div class="row mb-0">
+        <div class="col-12 text-end">
+            <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Ingresar</button>
+        </div>
+    </div>
+
+</form>
+
+{% endblock %}
+
+{% block content2 %}
+<div class="mt-5 text-center text-white">
+    <p>No tienes cuenta ?<a href="{% url 'signup' %}" class="fw-bold text-white"> Registrar </a> </p>
+    <p>© <script>document.write(new Date().getFullYear())</script> <a href="https://www.homecenter.com.co/" target="_blank">Sodimac</a> - <a href="https://www.cala-analytics.com/" target="_blank">Cala-Analytics</a></p>
+</div>
+{% endblock %}
+

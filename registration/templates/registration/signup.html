@@ -1,35 +1,56 @@
 {% extends 'core/resgis.html' %}
 {% load static %}
 {% block title %}Registro{% endblock %}
+
+{% block content3 %}
+<div class="text-center">
+    <a href="index.html">
+        <img src="{% static 'core/images/sodimac-logo.png' %}" height="22" alt="logo">
+    </a>
+    {% if 'register' in request.GET %}
+    <h5 class="text-primary mb-2 mt-4">Usuario registrado correctamente</h5>
+    <p class="text-muted">ya puedes ingresar.</p>
+    {% else %}
+    <h5 class="text-primary mb-2 mt-4">Eres nuevo!?</h5>
+    <p class="text-muted">Ingresa credenciales para continuar</p>
+    {% endif %}
+</div>
+{% endblock%}
+
 {% block content %}
-<form class="form-horizontal" action="{% url 'login' %}">      
+<form class="form-horizontal" action="" method='POST'>{% csrf_token %}      
   <div class="mb-3">
       <label for="useremail">Email</label>
-      <input type="email" class="form-control" id="useremail" placeholder="Enter email">        
+      {{form.email}}      
   </div>
 
   <div class="mb-3">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" placeholder="Enter username">
+      <label for="username">Usuario</label>
+      {{form.username}} 
   </div>
 
   <div class="mb-3">
-      <label for="userpassword">Password</label>
-      <input type="password" class="form-control" id="userpassword" placeholder="Enter password">        
+      <label for="userpassword">Contraseña</label>
+         {{form.password2}}   
+  </div>
+
+  <div class="mb-3">
+      <label for="userpassword">Contraseña</label>
+         {{form.password1}}   
   </div>
 
   <div class="mt-4">
-      <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Register</button>
+      <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Registrar</button>
   </div>
   <div class="mt-4 text-center">
-      <p class="mb-0">By registering you agree to the Morvin <a href="auth-register.html#" class="text-primary">Terms of Use</a></p>
+      <p class="mb-0">Recuerda que debes tener autorización del equipo <a href="https://www.homecenter.com.co/" class="text-primary">BI Sodimac</a></p>
   </div>
 </form>
 {% endblock %}
 
 {% block content2 %}
 <div class="mt-5 text-center text-white">
-    <p>Already have an account ? <a href="auth-login.html" class="fw-bold text-white"> Login </a> </p>
-    <p>© <script>document.write(new Date().getFullYear())</script> Morvin. Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://1.envato.market/themesdesign" target="_blank">Themesdesign</a></p>
+    <p>Ya tienes cuenta? <a href="{% url 'login' %}" class="fw-bold text-white"> Ingresa </a> </p>
+    <p>© <script>document.write(new Date().getFullYear())</script> <a href="https://www.homecenter.com.co/" target="_blank">Sodimac</a> - <a href="https://www.cala-analytics.com/" target="_blank">Cala-Analytics</a></p>
 </div>
 {% endblock %}

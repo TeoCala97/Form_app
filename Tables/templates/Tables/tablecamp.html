@@ -1,0 +1,55 @@
+{% extends 'core/index.html' %}
+{% load static %}
+{% block contentitle %}
+<div class="page-title">
+    <h4>FORMULARIOS</h4>
+        <ol class="breadcrumb m-0">
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Funciones</a></li>
+            <li class="breadcrumb-item"><a href="javascript: void(0);">Tablas</a></li>
+            <li class="breadcrumb-item active">Campañas</li>
+        </ol>
+</div>
+{% endblock %}
+{% block content %}<div class="container-fluid">
+  <div class="page-content-wrapper">
+      <div class="row">
+          <div class="col-12">
+              <div class="card">
+                  <div class="card-body">
+
+                      <h4 class="header-title">Tabla de Campañas</h4>
+                      <p class="card-title-desc">Base de datos de las campañas generados</code>.
+                      </p>
+
+                      <table id="table_campanha" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                          <thead>
+                          <tr>
+                              <th>Nombre de Campaña</th>
+                              <th>Marca</th>
+                              <th>Canal</th>
+                              <th>Email</th>
+                              <th>Prioridad</th>
+                              <th>Fecha de envio</th>
+                          </tr>
+                          </thead>
+                          
+                          <tbody>
+                          {% for item in camp %}
+                            <tr>
+                                <td>{{item.Nombre_campanha}}</td>
+                                <td>{{item.Marca}}</td>
+                                <td>{{item.Canal}}</td>
+                                <td>{{item.Email}}</td>
+                                <td>{{item.Prioridad}}</td>
+                                <td>{{item.Fecha_envio}}</td>
+                            </tr>
+                          {% endfor %}
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div> <!-- end col -->
+      </div> <!-- end row -->
+  </div>
+</div> <!-- container-fluid -->
+{% endblock %}
