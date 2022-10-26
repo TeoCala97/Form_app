@@ -1,40 +1,49 @@
+from audioop import reverse
 from copyreg import dispatch_table
 from dis import dis
+from pipes import Template
 from urllib import response
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from Form.forms import Formulario, Provisiones
 from functions.functions import Proyecto
 from django.views.generic.edit import FormView
+from django.contrib.auth.views import TemplateView 
+
+
+class CampView(TemplateView):
+    template_name = 'Form/camp.html'
 
 
 #%% Formulario Campañas
 class FormView(FormView):
     template_name = 'Form/form.html'
     form_class = Formulario
-    success_url = reverse_lazy('campaña')
 
     def post(self,request,*args,**kwargs):
         formulario = Formulario()
         if request.method == 'POST':
             formulario = Formulario(data=request.POST)
             if formulario.is_valid():
-                print(request.POST)
                 formulario.save()
                 formu = dict(request.POST)
                 print(formu)
-                # camp = Proyecto(formu)
-                # camp.connect()
-                # salida = camp.call_proc()
-                # if salida.empty:
-                #     print("No hay datos")
-                #     response = "No hay datos"
-                # else:
-                #     camp.Update_Json()
-                #     print(">>>>> ok Update json <<<<<")
-                #     camp.Publisher_topic()
-                #     print(">>>>> ok Publisher_topic <<<<<")
-            return render(request,'Form/camp.html')
+                camp = Proyecto(formu)
+                print(camp)
+                camp.connect()
+                salida = camp.call_proc()
+                print(salida)
+                if salida.empty:
+                    print("No hay datos")
+                else:
+                    camp.Update_Json()
+                    print(">>>>> ok Update json <<<<<")
+                    # camp.Publisher_topic()
+                    print(">>>>> ok Publisher_topic <<<<<")
+                camp.update_bucket(salida)
+                data = camp.get_form()
+
+            return render(request,'Form/camp.html',{'ID': data['Campanha_id'], 'Nombre_C': data['Nombre_campania'], 'N_registros': data['N_registros']})
             # return reverse_lazy('campaña')
 
     def form_valid(self, form):

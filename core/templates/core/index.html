@@ -5,22 +5,26 @@
 
     {% load static %}
     <meta charset="utf-8" />
-    <title>Dashboard | Morvin - Admin & Dashboard Template</title>
+    <title>Sodimac || CALA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="{% static 'core/images/icon.png' %}">
+    {% block links %}
 
-    <!-- plugin css -->
-    <link href="{% static 'core/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet" type="text/css" />
-
+    {% endblock%}
     <!-- Bootstrap Css -->
+    <link href="{% static 'core/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'core/css/bootstrap.min.css' %}"  rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{% static 'core/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{% static 'core/css/app.min.css' %}"  rel="stylesheet" type="text/css" />
+    <link href="{% static 'core/css/app.min.css' %}" rel="stylesheet" type="text/css" /> 
+
+    {% block linkstables %}
+    {% endblock %}
+    
 </head>
 
 
@@ -275,27 +279,11 @@
     <script src="{% static 'core/libs/node-waves/waves.min.js' %}"></script>
 
     <!-- apexcharts -->
+    {% block scripts %}
     
-    <script src="{% static 'core/js/pages/form-advanced.init.js' %}"></script>
-    <script src="{% static 'core/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
-    <script src="{% static 'core/libs/spectrum-colorpicker2/spectrum.min.js' %}"></script>
-    <script src="{% static 'core/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js' %}"></script>
-    <script src="{% static 'core/libs/bootstrap-maxlength/bootstrap-maxlength.min.js' %}"></script>
-
-    <!-- Plugins js-->
-    <script src="{% static 'core/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js' %}"></script>
-    <script src="{% static 'core/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js' %}"></script>
-
-    <!--<script src="{% static 'core/js/pages/dashboard.init.js' %}"></script>-->
-
-    <!-- Required datatable js -->
-    <script src="{% static 'core/libs/datatables.net/js/jquery.dataTables.min.js' %}"></script>
-    <script src="{% static 'core/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
-    <!-- Datatable init js -->
-    <script src="{% static 'core/js/pages/datatables.init.js' %}"></script>   
+    {% endblock %}
+    
     <script src="{% static 'core/js/app.js' %}"></script>
-    
-
 </body>
 
 </html>

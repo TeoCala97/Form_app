@@ -1,5 +1,15 @@
 {% extends 'core/index.html' %}
 {% load  static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'core/libs/twitter-bootstrap-wizard/prettify.css' %}">
+<link href="{% static 'core/libs/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'core/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}" rel="stylesheet">
+<link href="{% static 'core/libs/spectrum-colorpicker2/spectrum.min.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'core/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+
 {% block contentitle %}
 <div class="page-title">
     <h4>FORMULARIOS</h4>
@@ -77,4 +87,16 @@
 </div>
 
 
+{% endblock %}
+
+{% block scripts %}
+        <script src="{% static 'core/libs/select2/js/select2.min.js' %}"></script>
+        <script src="{% static 'core/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+        <script src="{% static 'core/libs/spectrum-colorpicker2/spectrum.min.js' %}"></script>
+        <script src="{% static 'core/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js' %}"></script>
+        <script src="{% static 'core/libs/bootstrap-maxlength/bootstrap-maxlength.min.js' %}"></script>
+        <script src="{% static 'core/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js' %}"></script>
+        <script src="{% static 'core/libs/twitter-bootstrap-wizard/prettify.js' %}"></script>
+        <script src="{% static 'core/js/pages/form-advanced.init.js' %}"></script>
+        <script src="{% static 'core/js/pages/form-wizard.init.js' %}"></script>
 {% endblock %}

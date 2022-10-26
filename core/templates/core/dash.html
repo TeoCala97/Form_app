@@ -1,5 +1,9 @@
 {% extends 'core/index.html' %}
 {% load static %}
+
+{% block links %}
+{% endblock %}
+
 {% block contentitle %}
 <div class="page-title">
     <h4>Dashboard</h4>
@@ -59,7 +63,17 @@
     
 {% endblock %}
 
+{% block scripts %}
 
+    <!-- Plugins js-->
+    <script src="{% static 'core/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js' %}"></script>
+    <script src="{% static 'core/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js' %}"></script>
+
+    <script src="{% static 'core/js/pages/dashboard.init.js' %}"></script>
+
+
+    <script src="{% static 'core/js/app.js' %}"></script>
+{% endblock %}
 
 
 

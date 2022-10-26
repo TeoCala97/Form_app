@@ -1,3 +1,5 @@
+import re
+from typing_extensions import Required
 from django import forms
 from .models import forms_api,Query
 
@@ -11,11 +13,15 @@ class Formulario(forms.ModelForm):
                     'Canal':forms.Select(attrs={'class':'form-control'}),
                     'Fecha_envio':forms.DateTimeInput(attrs={'type': 'date','class':'form-control'}),
                     'Email':forms.EmailInput(attrs={'class':'form-control'}),
-                    'Tipo_usuario':forms.Select(attrs={'class':'select2 form-control select2-multiple'}),
+                    'Tipo_usuario':forms.Select(attrs={'class':'form-control'}),
                     'Table_name':forms.TextInput(attrs={'class':'form-control'}),
                     'Nombre_campo':forms.TextInput(attrs={'class':'form-control'}),
                     'Valor_Campo':forms.TextInput(attrs={'class':'form-control'}),
-                    'Prioridad':forms.NumberInput(attrs={'class':'form-control'})
+                    'Prioridad':forms.NumberInput(attrs={'class':'form-control'}),
+                    'Segmento_necesidad':forms.Select(attrs={'class':'select2 form-control select2-multiple','multiple':'multiple'}),
+                    'Segmento_valor':forms.Select(attrs={'class':'form-control'}),
+                    'Ciclo_vida':forms.Select(attrs={'class':'select2 form-control select2-multiple','multiple':'multiple'}),
+                    'Tienda_frecuente':forms.Select(attrs={'class':'select2 form-control select2-multiple','multiple':'multiple'}),
                     }
 #%% Admin Provisiones
 class Provisiones(forms.ModelForm):

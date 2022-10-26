@@ -29,7 +29,8 @@ class Credenciales:
             }
 
         self.nombre_proyecto = "sod-co-bi-sandbox"
-        self.data_set = "trf_sod_co_bi_sod_prd"
+        self.data_set = "test_camp_os_app"
+        # self.data_set = "trf_sod_co_bi_sod_prd"
         self.data_set_seg_hist = "BI"
         self.table_hist_camp = 'tbl_log_hist_oneshot'
         self.table_seg_hist = 'tbl_clientes_segmento_hist_co'
@@ -51,6 +52,7 @@ class Credenciales:
 class Proyecto(Credenciales):
 
     def __init__(self,datos_campanha):
+        super().__init__()
         self.canal = datos_campanha["Canal"][0]
         self.tipo_usuario = datos_campanha["Tipo_usuario"][0]
         self.marca = datos_campanha["Marca"][0]
@@ -59,19 +61,21 @@ class Proyecto(Credenciales):
         self.fecha_envio = datos_campanha["Fecha_envio"][0]
         self.Email = datos_campanha["Email"][0]
         self.Camp = datos_campanha["Valor_Campo"][0]
-        self.N_campo = datos_campanha["Nombre_campo"][0]
+        self.N_campo = datos_campanha["Nombre_campo"][0]    
         self.Table_name = datos_campanha["Table_name"][0]
-        if self.tipo_usuario == "None":
-            self.ruta_table = f"`{self.Table_name}`"
-        else: 
-            self.ruta_table = f"`{self.nombre_proyecto}.{self.data_set}.{self.name_table}`"
+        
               
 
     def connect(self):
-        self.client = bigquery.Client(project=self.nombre_proyecto)
-        self.client_storage = storage.Client(project=self.nombre_proyecto)
-        self.bucket1 = self.client_storage.get_bucket(self.bucket1)
-        self.bucket2 = self.client_storage.get_bucket(self.bucket2)
+        try:
+            self.client = bigquery.Client(project=self.nombre_proyecto)
+            self.client_storage = storage.Client(project=self.nombre_proyecto)
+            self.bucket1 = self.client_storage.get_bucket(self.bucket1)
+            self.bucket2 = self.client_storage.get_bucket(self.bucket2)
+            print("Conexión Activa")
+        except:
+            print("No sé logró conectar")
+        
     
     def __normalize(self,_str):
         replacements = (
@@ -83,6 +87,16 @@ class Proyecto(Credenciales):
             _str = _str.replace(a, b)
         return _str
 
+    def __name_table(self):
+        fecha_md = self.__normalize(self.fecha_envio)
+        fecha_md = fecha_md[4:]
+        name_table = f"{self.canal}_p{self.prioridad}_{fecha_md}"     
+        if self.tipo_usuario == "":
+            self.ruta_table = f"`{self.Table_name}`"
+        else:
+            self.ruta_table = f"`{self.nombre_proyecto}.{self.data_set}.{name_table}`"
+        return self.ruta_table
+
     def __create_table_camp(self):
         if self.marca== "HC":
             perfil = 'HOGAR'
@@ -92,8 +106,8 @@ class Proyecto(Credenciales):
         if self.tipo_usuario == 'TODOS':
             filtro = ""
         else:
-            filtro = f"INNER JOIN `{self.nombre_proyecto}.{self.data_set}.{self.dic['tipo_usuario']}` A ON A.NO_CEDULA = B.NO_CEDULA"
-        consulta = f"""create or replace table {self.Table_name}
+            filtro = f"INNER JOIN `{self.nombre_proyecto}.{self.data_set}.{self.dic[self.tipo_usuario]}` A ON A.NO_CEDULA = B.NO_CEDULA"
+        consulta = f"""create or replace table {self.ruta_table}
                 OPTIONS(expiration_timestamp=TIMESTAMP_ADD(current_timestamp(), INTERVAL 1 DAY))
                 as
                 SELECT B.NO_CEDULA, B.PERIODO  
@@ -103,6 +117,7 @@ class Proyecto(Credenciales):
                 where B.perfil = '{perfil}'
                 and B.periodo = {self.periodo}"""
         print(f"Consulta {consulta}.")
+        print(self.ruta_table)
         u.query(consulta)
         ##return (u.query(f"SELECT COUNT(*) FROM {ruta_table}")).f0_[0]
 
@@ -111,8 +126,9 @@ class Proyecto(Credenciales):
 
     def call_proc(self):
 
-        if self.tipo_usuario != "None":
+        if self.tipo_usuario != "":
             print(">>>>> crear tabla <<<<<")
+            self.__name_table()
             self.__create_table_camp() 
             print(">>>>> crear tabla: ok <<<<<")
             
@@ -134,7 +150,7 @@ class Proyecto(Credenciales):
                     nombre_campania AS Nombre_campania,
                     COUNT(*)N_registros
                     FROM
-                    `sod-co-bi-sandbox.trf_sod_co_bi_sod_prd.tbl_log_hist_oneshot`
+                    `sod-co-bi-sandbox.test_camp_os_app.tbl_log_hist_oneshot`
                     WHERE
                     PARTITIONTIME = "{self.fecha_envio}"--Parametro Fecha Envio
                     AND campaign_id = "{id_camp}" --Param Campaña
@@ -216,7 +232,7 @@ class Proyecto(Credenciales):
             with open(self.file_Json,'w') as j:
                 json.dump(datos,j)    
 
-            blob = self.bucket1.blob(file_Json)
+            blob = self.bucket1.blob(self.file_Json)
             blob.upload_from_filename(self.file_Json)        
         else:
             file_Json = "cfg_sp_one_shot_sms_audiencia.json"
@@ -233,5 +249,37 @@ class Proyecto(Credenciales):
             blob = self.bucket1.blob(file_Json)
             blob.upload_from_filename(file_Json)
             #nombre archivo
+
+    def get_form(self):
+        blob_get = self.bucket2.get_blob('post_data_test.json')
+        File= blob_get.download_as_string() 
+        File = json.loads(File)
+        return File
+
+    def update_bucket(self,datos):    
+    
+        file_Json = "post_data_test.json"
+        
+        
+        with open(file_Json,"r") as j:
+            datosjson=json.load(j)
+        
+        if datos.empty:
+            datosjson["Campanha_id"] = "None"
+            datosjson["Nombre_campania"] = "None"
+            datosjson["N_registros"] = int(0)
+        else:
+            datosjson["Campanha_id"] = datos["Campanha_id"][0]
+            datosjson["Nombre_campania"] = datos["Nombre_campania"][0]
+            datosjson["N_registros"] = int(datos["N_registros"][0])
+
+        with open(file_Json,'w') as j:
+            json.dump(datosjson,j)    
+        
+        blob = self.bucket2.blob(file_Json)
+        blob.upload_from_filename(file_Json)
+
+
+    
 
 

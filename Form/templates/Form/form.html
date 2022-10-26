@@ -1,5 +1,15 @@
 {% extends 'core/index.html' %}
 {% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'core/libs/twitter-bootstrap-wizard/prettify.css' %}">
+<link href="{% static 'core/libs/select2/css/select2.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'core/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}" rel="stylesheet">
+<link href="{% static 'core/libs/spectrum-colorpicker2/spectrum.min.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'core/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+
 {% block contentitle %}
 <div class="page-title">
     <h4>FORMULARIOS</h4>
@@ -17,113 +27,238 @@
       <div class="col-xl-12">
         <div class="card">
           <div class="card-body">
-            <h1 class="header-title mb-4">Agregar Campaña</h1>   
-            <form novalidate class="" action="{% url 'formulario'%}" method="POST">
-            {% csrf_token %}
-              <section class="section__inputs section__inputs--first">
-                <div class="Section__form--input" id="input__campaing">
-                  <label class="form__label--input" id="label__campaing" for="cid_3">Nombre de la Campaña</label>
-                  {{form.Nombre_campanha}}
-                </div>
-                {{form.Nombre_campanha.error}}
-                <div class="row">
-                    <div class="col-md-6">
-                      <label class="form-label form-label-left form-label-auto" id="label_15" for="input_15">Marca</label>
-                      {{form.Marca}}
+            <h1 class="header-title mb-4">Agregar Campañas</h1>
+              <form  class="" action="" method="POST" >{% csrf_token %}
+                    <div id="progrss-wizard" class="twitter-bs-wizard">
+                    <!--navegador-->
+                      <ul class="twitter-bs-wizard-nav nav-justified">
+                          <li class="nav-item wizard-border">
+                              <a href="#progress-seller-details" class="nav-link" data-toggle="tab">
+                                  <span class="step-number">01. Campos Basicos</span>
+                              </a>
+                          </li>
+                          <li class="nav-item wizard-border">
+                              <a href="#progress-company-document" class="nav-link" data-toggle="tab">
+                                  <span class="step-number">02. Campos Manuales</span>
+                              </a>
+                          </li>
+                          <li class="nav-item wizard-border">
+                              <a href="#progress-bank-detail" class="nav-link" data-toggle="tab">
+                                  <span class="step-number">03. Campos Avanzados</span>
+                              </a>
+                          </li>
+
+                          <li class="nav-item">
+                              <a href="#progress-confirm-detail" class="nav-link" data-toggle="tab">
+                                  <span class="step-number">04. Confirmar Detalles </span>
+                              </a>
+                          </li>
+                      </ul>
+                      <!--animación-->
+                        <div id="bar" class="progress mt-4">
+                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated"></div>
+                        </div>
+                                        <!--Campos Basicos-->
+                        <div class="tab-content twitter-bs-wizard-tab-content">
+                          <div class="tab-pane" id="progress-seller-details">
+
+                            <div class="Section__form--input" id="input__campaing">
+                              <label class="form__label--input" id="label__campaing" for="cid_3">Nombre de la Campaña</label>
+                                {{form.Nombre_campanha}}
+                            </div>
+                            {{form.Nombre_campanha.error}}
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <label class="form-label form-label-left form-label-auto" id="label_15" for="input_15">Marca</label>
+                                  {{form.Marca}}
+                                </div>
+                                {{form.Marca.error}}
+                                <div class="col-md-6">
+                                  <label
+                                  class="form-label form-label-left form-label-auto"
+                                  id="label_16"
+                                  for="input_16"
+                                  >Canal</label>
+                                    {{form.Canal}}
+                                </div>
+                                {{form.Canal.error}}
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-6" id="input__date">
+                                <label class="form-label form-label-left form-label-auto" id="label_10" for="lite_mode_10">Fecha de envío </label>
+                                  {{form.Fecha_envio}}
+                              </div>
+                              {{form.Fecha_envio.error}}
+                              <div class="col-md-6 ">
+                                  <label class="form-label" id="label_32" for="input_32" >Prioridad</label>
+                                  <div class='input-group  bootstrap-touchspin bootstrap-touchspin-injected'>
+                                    {{form.Prioridad}}
+                                    <span class="input-group-btn-vertical">
+                                      <button class="btn btn-primary bootstrap-touchspin-up " type="button" >+</button>
+                                      <button class="btn btn-primary bootstrap-touchspin-down " type="button" >-</button>
+                                    </span>
+                                  </div>
+                              </div>
+                              {{form.Prioridad.error}}
+                            </div>
+
+                            <div class="Section__form--input" id="input__email">
+                              <label class="form-label form-label-left form-label-auto" id="label_17" for="input_17">Email</label>
+                                {{form.Email}}
+                              </div>
+                            {{form.Email.error}}  
+
+                            <ul class="pager wizard twitter-bs-wizard-pager-link">
+                                <li class="next"><a href="#">Campos Manuales <i class="mdi mdi-arrow-right ms-1"></i></a></li>
+                            </ul>
+                      <!--Campos Basicos -->   
                     </div>
-                    {{form.Marca.error}}
-                    <div class="col-md-6">
-                      <label
-                      class="form-label form-label-left form-label-auto"
-                      id="label_16"
-                      for="input_16"
-                      >Canal</label>
-                      {{form.Canal}}
+
+                    <div class="tab-pane" id="progress-company-document">
+                      <div>
+                        <div class="row">
+                            <div class="col-md-6" >
+                              <label class="form-label form-label-left" id="label_28" for="input_28">Tipo de Usuarios</label>
+                              {{form.Tipo_usuario}}
+                            </div>
+                            <div class="col-md-6">
+                              <label class="form-label form-label-left" id="label_28" for="input_28">Nombre de Tabla</label>
+                              {{form.Table_name}}
+                            </div>
+                        </div>
+                                          
+                        <div class="row">
+                            <div class="col-md-6"> 
+                              <label class="form-label form-label-left form-label-auto" id="label_29" for="input_29">Nombre del Campo</label>
+                                {{form.Nombre_campo}}
+                            </div>
+                            <div class="col-md-6">
+                              <label class="form-label form-label-left form-label-auto" id="label_30" for="input_30" >Valor del Campo</label>
+                                {{form.Valor_Campo}}
+                            </div>
+
+                        </div>
+                                      
+                        <ul class="pager wizard twitter-bs-wizard-pager-link">
+                            <li class="previous"><a href="#"><i class="mdi mdi-arrow-left me-1"></i> Campos Basicos</a></li>
+                            <li class="next"><a href="#">Campos Avanzados<i class="mdi mdi-arrow-right ms-1"></i></a></li>
+                        </ul>
+                      </div>
                     </div>
-                    {{form.Canal.error}}
-                </div>
-                <div class="row">
-                  <div class="col-md-6" id="input__date">
-                    <label class="form-label form-label-left form-label-auto" id="label_10" for="lite_mode_10">Fecha de envío </label>
-                    {{form.Fecha_envio}}
+
+                    <div class="tab-pane" id="progress-bank-detail">
+                      <div>                                          
+                        <div class="row">
+                            <div class="col-md-6">
+                              <label class="form-label">Segmento Necesidad</label>
+                                {{form.Segmento_necesidad}}
+                            </div>
+
+                            <div class="col-md-6">
+                              <label class="form-label" >Ciclo de Vida</label>
+                                {{form.Ciclo_vida}}
+                            </div>
+                            <div class="col-md-6">
+                              <label class="form-label">Segmento Valor</label>
+                                {{form.Segmento_valor}}
+                            </div>
+
+                            <div class="col-md-6">
+                              <label class="form-label" >Tienda Frecuente</label>
+                                {{form.Tienda_frecuente}}
+                            </div>
+
+                        </div>
+                                      
+                        <ul class="pager wizard twitter-bs-wizard-pager-link">
+                            <li class="previous"><a href="#"><i class="mdi mdi-arrow-left me-1"></i> Campos Manuales</a></li>
+                            <li class="next"><a href="#">Confirmar Detalles<i class="mdi mdi-arrow-right ms-1"></i></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                                                   
+                <div class="tab-pane" id="progress-confirm-detail">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center">
+                        {% if  form.resquire  %}
+                            <div class="mb-4">
+                                <i class="mdi mdi-alert text-danger display-4"></i>
+                            </div>
+                            <div>
+                                <h5>No se completo adecuadamente el formulario</h5>
+                                <p class="text-muted">Por favor verifique los campos del formulario antes de enviar</p>
+                            </div>
+                        {% else %}
+                            <div class="mb-4">
+                                  <i class="mdi mdi-bell-check-outline text-success display-4"></i>
+                              </div>
+                              <div>
+                                  <h5>Confirmar Detalles</h5>
+                                  <p class="text-muted">Por favor verifique los campos del formulario antes de enviar</p>
+                              </div>
+                        {% endif %}
+                        </div>
+                    </div>
                   </div>
-                  {{form.Fecha_envio.error}}
-                  <div class="col-md-6">
-                    <label class="form-label form-label-left form-label-auto" id="label_32" for="input_32" >Prioridad</label>
-                    {{form.Prioridad}}
-                  </div>
-                  {{form.Prioridad.error}}
-                </div>
-                {% comment %} Aquí comeinza el input deemail {% endcomment %}
-                <div class="Section__form--input" id="input__email">
-                <label class="form-label form-label-left form-label-auto" id="label_17" for="input_17">Email</label>
-                {{form.Email}}
-                </div>
-                {{form.Email.error}}
-                </section>
-              </div>
+                <ul class="pager wizard twitter-bs-wizard-pager-link">
+                    <li class="previous"><a href="#"><i class="mdi mdi-arrow-left me-1"></i>Campos Detallados</a></li>
+                    <li class="float-end">
+                      <div class="">
+                        <input class="btn btn-primary w-100 waves-effect waves-light" type="submit" value="Confirmar" href="{% url 'formulario' %}"/>
+                      </div>
+                    </li>
+                </ul>
+              </form>
             </div>
-          </div>
-          <div class="col-xl-12">
-            <div class="card">
-              <div class="card-body">
-                 <section class="section__inputs section__inputs--second">
-                
-                  <div class="row">
-
-                    <div class="col-md-11" >
-                      <h1 class="header-title mb-4">Campos Dinamicos</h1>
-                    </div>
-
-                    <div class="col-md-1" >
-                      <input type="checkbox" id="square-switch1" switch="none" checked />
-                      <label for="square-switch1" data-on-label="On"data-off-label="Off"></label>
-                    </div>
-
-                  </div>
-
-                </section>
-                <section class="section__inputs section__inputs--second">
-                
-                  <div class="row">
-
-                    <div class="col-md-6" >
-                      <label class="form-label form-label-left" id="label_28" for="input_28">Segmento Necesidad</label>
-                      {{form.Tipo_usuario}}
-                    </div>
-                    {{form.Tipo_usuario.error}}
-                    <div class="col-md-6">
-                      <label class="form-label form-label-left" id="label_28" for="input_28">Segmento Valor</label>
-                      {{form.Table_name}}
-                    </div>
-                    {{form.Table_name.error}}
-                  </div>
-
-                </section>
-                <section class="section__inputs seccion__inputs--third">
-
-                  <div class="row">
-                    <div class="col-md-6"> 
-                      <label class="form-label form-label-left form-label-auto" id="label_29" for="input_29">Ciclo de Vida</label>
-                      {{form.Nombre_campo}}
-                    </div>
-                    {{form.Nombre_campo.error}}
-                    <div class="col-md-6">
-                    <label class="form-label form-label-left form-label-auto" id="label_30" for="input_30" >Tienda Frecuente</label>
-                    {{form.Valor_Campo}}
-                    </div>
-                    {{form.Valor_Campo.error}}
-                  </div>
-
-                </section>
-                <div class="form-horizontal mt-4 pt-2">
-                  <input class="btn btn-primary w-100 waves-effect waves-light" type="submit" value="Disparar" href="{% url 'formulario' %}"/>
-                </div>
-            </form>
-          </div>
-        </div>
+          </div>                          
+        </div>        
       </div>
     </div>
-  </div>
+    <div class="row">   
+    <div class="col-xl-6">
+        <div class="card text-white bg-warning" >
+          <div class="card-body">
+            <blockquote class="card-bodyquote mb-0">
+                <p>Recuerda que para llenar el formulario se debe tener claro
+                los campos a utilizar para las respectivas campañas que se deben
+                emitir diariamente. Si tiene alguna duda de como realizar estas campañas
+                por favor contactar alguien capacitado</p>
+                <footer class="blockquote-footer mt-0 text-white"><cite title="Source Title">Admin</cite>
+                </footer>
+            </blockquote>
+            </div>
+        </div>   
+      </div> 
+      <div class="col-xl-6">
+        <div class="card text-white bg-danger" >
+          <div class="card-body">
+            <blockquote class="card-bodyquote mb-0">
+                <p>Si al enviar el formulario Y no envia la campaña. Por favor revisar nuevamente
+                los campos para verificar que esten completos adecuadamente, actualmente estamos
+                trabajando para generar una alerta mas intuitiva para el usuario y pueda vizualizarlo de
+                mejor manera</p>
+                <footer class="blockquote-footer mt-0 text-white"><cite title="Source Title">Admin</cite>
+                </footer>
+            </blockquote>
+            </div>
+        </div>   
+      </div>
+      </div>
+  </div>   
 </div>
+{% endblock %}
+
+{% block scripts %}
+        <script src="{% static 'core/libs/select2/js/select2.min.js' %}"></script>
+        <script src="{% static 'core/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+        <script src="{% static 'core/libs/spectrum-colorpicker2/spectrum.min.js' %}"></script>
+        <script src="{% static 'core/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js' %}"></script>
+        <script src="{% static 'core/libs/bootstrap-maxlength/bootstrap-maxlength.min.js' %}"></script>
+        <script src="{% static 'core/libs/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js' %}"></script>
+        <script src="{% static 'core/libs/twitter-bootstrap-wizard/prettify.js' %}"></script>
+        <script src="{% static 'core/js/pages/form-advanced.init.js' %}"></script>
+        <script src="{% static 'core/js/pages/form-wizard.init.js' %}"></script>
 {% endblock %}
