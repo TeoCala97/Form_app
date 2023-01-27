@@ -43,6 +43,7 @@ class forms_api(models.Model):
     Nombre_campanha = models.CharField(max_length=200, verbose_name="Nombre Campaña")
     Marca =  models.CharField(max_length=10,choices=MARCAS,verbose_name="Marca")
     Canal =  models.CharField(max_length=10,choices=CANAL,verbose_name="Canal")
+    Categoria = models.CharField(max_length=200, verbose_name="Categoria")
     Fecha_envio = models.DateField()
     Email = models.EmailField()
     Tipo_usuario =  models.CharField(max_length=10,choices=TIPO,verbose_name="Tipo de usuario", default=None)

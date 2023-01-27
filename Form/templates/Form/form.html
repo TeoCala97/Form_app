@@ -14,6 +14,14 @@
           </div>
         </div>
       </li>
+      
+      <li class="form-line jf-required" data-type="control_textbox" id="id_3">
+        <label class="form-label form-label-left" id="label_3" for="input_3">Categoria</label>
+        <div id="cid_3" class="form-input jf-required">
+         {{form.Categoria}}
+        </div>
+      </li>
+
       <li class="form-line jf-required" data-type="control_textbox" id="id_3">
         <label class="form-label form-label-left" id="label_3" for="input_3">Nombre Campaña </label>
         <div id="cid_3" class="form-input jf-required">
@@ -30,26 +38,21 @@
       <li class="form-line" data-type="control_dropdown" id="id_16">
         <label class="form-label form-label-left form-label-auto" id="label_16" for="input_16"> Canal </label>
         <div id="cid_16" class="form-input">
-		<span class="form-sub-label-container" style="vertical-align:top">
+
           {{form.Canal}}
-		</span>
         </div>
       </li>
       <li class="form-line" data-type="control_datetime" id="id_10">
         <label class="form-label form-label-left form-label-auto" id="label_10" for="lite_mode_10"> Fecha de envio </label>
         <div id="cid_10" class="form-input">
-		<span class="form-sub-label-container" style="vertical-align:top">
 		{{form.Fecha_envio}}
-		</span>
+
         </div>
       </li>
       <li class="form-line" data-type="control_email" id="id_17">
         <label class="form-label form-label-left form-label-auto" id="label_17" for="input_17"> Email </label>
         <div id="cid_17" class="form-input">
-          <span class="form-sub-label-container" style="vertical-align:top">
             {{form.Email}}
-            <label class="form-sub-label" for="input_17" id="sublabel_input_17" style="min-height:13px" aria-hidden="false"> ejemplo@ejemplo.com </label>
-          </span>
         </div>
       </li>
 
@@ -100,7 +103,6 @@
           </div>
         </div>
       </li>
-
       <li class="form-line" data-type="control_button" id="id_23">
         <div id="cid_23" class="form-input-wide">
           <div style="margin-left:156px" data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
